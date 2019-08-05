@@ -1,0 +1,22 @@
+/* IMPORTANT INFORMATION
+    Using BEM architecture: http://getbem.com/
+    Developed with a mobile-first approach; all desktop styling should be in media queries
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+header {
+    height: 300px;
+    background: #aaa;
+}
+
+footer {
+    height: 300px;
+    background: #aaa;
+}
+

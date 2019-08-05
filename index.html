@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>ACM@MSU</title>
+	
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Titillium+Web&display=swap" rel="stylesheet">
+	
+	<!-- Required stylesheet for Glide (https://glidejs.com/) -->
+	<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+
+	<!-- Base stylesheet - any overlapping rules before this gets overwritten -->
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/events.css">
+	<link rel="stylesheet" href="css/past.css">
+	<link rel="stylesheet" href="css/board.css">
+	
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/b6d661248b.js"></script>
+</head>
+<body>
+	<header></header>
+	
+	<section class="events">
+		<h1 class="events__head">Upcoming ACM Events</h1>
+		<div class="event">
+			<h2 class="event__head">Event Title</h2>
+			<p class="event__date">February 24th, 2020 at 6:30 PM</p>
+			<p class="event__location">Wilson Hall, Room A101</p>
+			<p class="event__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, velit numquam corrupti quae consequatur facere porro sunt ducimus sapiente voluptas dolorem nisi quos adipisci fuga omnis dolorum eligendi iure accusamus tempora illo necessitatibus, sit aut minus?</p>
+			<img class="event__image" src="https://dummyimage.com/160x90/000/fff" alt="">
+		</div>
+	</section>
+
+	<section class="past">
+		<h1 class="past__head">Past ACM Events</h1>
+		
+		<div class="glide">
+			<div class="glide__track" data-glide-el="track">
+				<div class="past__events glide__slides">
+					<div class="past-event glide__slide">
+						<h2 class="past-event__head">Event Title</h2>
+						<p class="past-event__date">February 24th, 2020 at 6:30 PM</p>
+						<img class="past-event__image" src="https://dummyimage.com/160x90/000/fff" alt="">
+					</div>
+				</div>
+			</div>
+
+			<div class="glide__arrows" data-glide-el="controls">
+				<button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-angle-left"></i></button>
+				<button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-angle-right"></i></button>
+			</div>
+		</div>
+	</section>
+
+	<section class="board">
+		<h1 class="board__head">ACM Board</h1>
+		<div class="board__wrapper">
+			<div class="board__member">
+				<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
+				<h2 class="member__head">Caleb Kish</h2>
+				<p class="member__title">Webmaster</p>
+			</div>
+		</div>
+	</section>
+
+	<footer>This is the footer</footer>
+
+	<script src="node_modules/@glidejs/glide/dist/glide.min.js" type="application/javascript"></script>
+	
+	<script src="js/Ui.js" type="application/javascript"></script>
+	<script src="js/AcmEvent.js" type="application/javascript"></script>
+
+	<!-- Dependencies must go before the index script -->
+	<script src="js/index.js" type="application/javascript"></script>
+</body>
+</html>
