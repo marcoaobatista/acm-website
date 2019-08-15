@@ -7,17 +7,14 @@
 	<title>ACM@MSU</title>
 	
 	<!-- Google Fonts -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin|Titillium+Web&display=swap">
-
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> 
 	
 	<!-- Required stylesheet for Glide (https://glidejs.com/) -->
-	<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
+	<link rel="stylesheet" href="css/glide.core.min.css">
 
 	<!-- Base stylesheet - any overlapping rules before these gets overwritten -->
-	<link rel="stylesheet" href="assets/css/index.css">
+	<link rel="stylesheet" href="css/index.css">
 	
 	<!-- Font Awesome -->
 	<script src="https://kit.fontawesome.com/b6d661248b.js"></script>
@@ -38,15 +35,7 @@
 	
 	<section class="events">
 		<h1 class="events__head">Upcoming Events</h1>
-		<div class="events__wrapper">
-			<!-- <div class="event">
-				<h2 class="event__head">Event Title</h2>
-				<p class="event__date"><i class="far fa-calendar-alt"></i> February 24th, 2020 at 6:30 PM</p>
-				<p class="event__location"><i class="fas fa-map-marked-alt"></i> Wilson Hall, Room A101</p>
-				<p class="event__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, velit numquam corrupti quae consequatur facere porro sunt ducimus sapiente voluptas dolorem nisi quos adipisci fuga omnis dolorum eligendi iure accusamus tempora illo necessitatibus, sit aut minus?</p>
-				<div class="event__image"></div>
-			</div> -->
-		</div>
+		<div class="events__wrapper"></div>
 		
 		<div class="events__placeholder">Nothing yet...stay tuned!</div>
 	</section>
@@ -65,13 +54,7 @@
 		
 		<div class="carousel glide">
 			<div class="glide__track" data-glide-el="track">
-				<div class="past__events glide__slides">
-					<!-- <div class="pastEvent">
-						<h2 class="pastEvent__head">Event Title</h2>
-						<p class="pastEvent__date">February 24th, 2020 at 6:30 PM</p>
-						<div class="pastEvent__image"></div>
-					</div> -->
-				</div>
+				<div class="past__events glide__slides"></div>
 			</div>
 
 			<div class="glide__arrows" data-glide-el="controls">
@@ -117,7 +100,7 @@
 
 	<section class="contact">
 		<h1 class="contact__head">Send us a Message</h1>
-		<form class="contact__form">
+		<form class="contact__form" name="contact" method="POST" data-netlify="true">
 			<input class="contact__firstname" type="text" name="firstname" placeholder="First name">
 			<input class="contact__lastname" type="text" name="lastname" placeholder="Last name">
 			<input class="contact__email" type="email" name="email" placeholder="Email">
@@ -135,13 +118,13 @@
 		</div>
 	</footer>
 
-	<script src="node_modules/@glidejs/glide/dist/glide.min.js" type="application/javascript"></script>
-	<script src="node_modules/typed.js/lib/typed.min.js" type="application/javascript"></script>
+	<script src="js/glide.min.js" type="application/javascript"></script>
+	<script src="js/typed.min.js" type="application/javascript"></script>
 	
-	<script src="assets/js/Ui.js" type="application/javascript"></script>
-	<script src="assets/js/AcmEvent.js" type="application/javascript"></script>
+	<script src="js/Ui.js" type="application/javascript"></script>
+	<script src="js/AcmEvent.js" type="application/javascript"></script>
 
 	<!-- Dependencies must go before the index script -->
-	<script src="assets/js/index.js" type="application/javascript"></script>
+	<script src="js/index.js" type="application/javascript"></script>
 </body>
 </html>

@@ -1,12 +1,14 @@
 var ui = new Ui();
 
+var testImage = 'https://previews.dropbox.com/p/thumb/AAgk_2KZ1o9CdlFv7WSnef53Y_rYn56sMLU7rue1-W6Jp1hm1RTufV8EC3qeXxefHi365L1HFzmH6qxK8mqx4AzTLQ2MkEIms940B-GfckGxoselmzN58wo0sHEMPj2kbTrJTbQIt1krA6sL35QhkqTfdshhfsiREQ9-IZjYKy81wMTuEjy3-Ju15y0P78SEmWe3xTYfpbZU4FG0d3p6gKVKXs64DFjKBEh3NnUTOcIzOJ0w2N5Yo96q0Ls33idJFMWiUj10pLPnRqt3rXpNn81EGAYcnk3FCuJJ8Zy-dlgAWNGB8xXXS2-5W4p7MmIzZfI8chnZbXNN_8aB_VGYFZ61/p.jpeg';
+
 var rawEvents = [
     {
         'title': 'Event',
         'date': '1995-12-17T03:24:00',
         'location': 'Wilson Hall, Room A101',
         'description': 'Test',
-        'image': 'assets/images/acm1.jpg',
+        'image': testImage,
         'imageDescription': 'Test image'
     },
     {
@@ -14,7 +16,7 @@ var rawEvents = [
         'date': '1995-12-17T03:24:00',
         'location': 'Wilson Hall, Room A101',
         'description': 'Test',
-        'image': 'assets/images/acm2.jpg',
+        'image': testImage,
         'imageDescription': 'Test image'
     },
     {
@@ -22,7 +24,7 @@ var rawEvents = [
         'date': '1995-12-17T03:24:00',
         'location': 'Wilson Hall, Room A101',
         'description': 'Test',
-        'image': 'assets/images/acm1.jpg',
+        'image': testImage,
         'imageDescription': 'Test image'
     },
     {
@@ -30,7 +32,7 @@ var rawEvents = [
         'date': '1995-12-17T03:24:00',
         'location': 'Wilson Hall, Room A101',
         'description': 'Test',
-        'image': 'assets/images/acm1.jpg',
+        'image': testImage,
         'imageDescription': 'Test image'
     },
     {
@@ -38,7 +40,7 @@ var rawEvents = [
         'date': '2020-12-12T00:00:00',
         'location': 'Wilson Hall, Room A101',
         'description': 'Cool description 2',
-        'image': 'https://dummyimage.com/160x90/555/fff',
+        'image': testImage,
         'imageDescription': 'Test image'
     },
     {
@@ -46,7 +48,7 @@ var rawEvents = [
         'date': '2020-12-12T00:00:00',
         'location': 'Wilson Hall, Room A101',
         'description': 'Cool description 2',
-        'image': 'https://dummyimage.com/160x90/555/fff',
+        'image': testImage,
         'imageDescription': 'Test image'
     },
     {
@@ -54,7 +56,7 @@ var rawEvents = [
         'date': '2020-12-12T00:00:00',
         'location': 'Wilson Hall, Room A101',
         'description': 'Cool description 2',
-        'image': 'https://dummyimage.com/160x90/555/fff',
+        'image': testImage,
         'imageDescription': 'Test image'
     }
 ];
