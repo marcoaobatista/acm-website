@@ -14,6 +14,7 @@ For creating an event data object
 function AcmEvent(event) {
     this.title = event.title;
     this.date = new Date(event.date);
+    this.location = event.location;
     this.description = event.description;
     this.image = event.image;
     this.imageDescription = event.imageDescription;

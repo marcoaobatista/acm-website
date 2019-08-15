@@ -7,45 +7,70 @@
 	<title>ACM@MSU</title>
 	
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Titillium+Web&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Franklin|Titillium+Web&display=swap">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> 
 	
 	<!-- Required stylesheet for Glide (https://glidejs.com/) -->
 	<link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css">
 
-	<!-- Base stylesheet - any overlapping rules before this gets overwritten -->
-	<link rel="stylesheet" href="css/index.css">
-	<link rel="stylesheet" href="css/events.css">
-	<link rel="stylesheet" href="css/past.css">
-	<link rel="stylesheet" href="css/board.css">
+	<!-- Base stylesheet - any overlapping rules before these gets overwritten -->
+	<link rel="stylesheet" href="assets/css/index.css">
 	
 	<!-- Font Awesome -->
 	<script src="https://kit.fontawesome.com/b6d661248b.js"></script>
 </head>
 <body>
-	<header></header>
+	<header class="header">
+		
+		<div class="header__wrapper">
+			<h1 class="header__title">acm@msu</h1>
+			<h4 class="header__subtitle">Weekly tech talks, workshops, and open hacks for</h4>
+			<div class="header__typed">
+				<h4 class="header__who"></h4>
+			</div>
+			
+		</div>
+		<div class="header__background"></div>
+	</header>
 	
 	<section class="events">
-		<h1 class="events__head">Upcoming ACM Events</h1>
-		<div class="event">
-			<h2 class="event__head">Event Title</h2>
-			<p class="event__date">February 24th, 2020 at 6:30 PM</p>
-			<p class="event__location">Wilson Hall, Room A101</p>
-			<p class="event__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, velit numquam corrupti quae consequatur facere porro sunt ducimus sapiente voluptas dolorem nisi quos adipisci fuga omnis dolorum eligendi iure accusamus tempora illo necessitatibus, sit aut minus?</p>
-			<img class="event__image" src="https://dummyimage.com/160x90/000/fff" alt="">
+		<h1 class="events__head">Upcoming Events</h1>
+		<div class="events__wrapper">
+			<!-- <div class="event">
+				<h2 class="event__head">Event Title</h2>
+				<p class="event__date"><i class="far fa-calendar-alt"></i> February 24th, 2020 at 6:30 PM</p>
+				<p class="event__location"><i class="fas fa-map-marked-alt"></i> Wilson Hall, Room A101</p>
+				<p class="event__desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo, velit numquam corrupti quae consequatur facere porro sunt ducimus sapiente voluptas dolorem nisi quos adipisci fuga omnis dolorum eligendi iure accusamus tempora illo necessitatibus, sit aut minus?</p>
+				<div class="event__image"></div>
+			</div> -->
 		</div>
+		
+		<div class="events__placeholder">Nothing yet...stay tuned!</div>
+	</section>
+
+	<section class="mailing">
+		<h1 class="mailing__head">Want to be notified on the next event?</h1>
+		<p class="mailing__info">Subscribe to our mailing list!</p>
+		<form class="mailing__form">
+			<input class="mailing__email" type="email" name="email" placeholder="Email">
+			<input class="mailing__submit" type="submit" value="Subscribe">
+		</form>
 	</section>
 
 	<section class="past">
-		<h1 class="past__head">Past ACM Events</h1>
+		<h1 class="past__head">Past Events</h1>
 		
-		<div class="glide">
+		<div class="carousel glide">
 			<div class="glide__track" data-glide-el="track">
 				<div class="past__events glide__slides">
-					<div class="past-event glide__slide">
-						<h2 class="past-event__head">Event Title</h2>
-						<p class="past-event__date">February 24th, 2020 at 6:30 PM</p>
-						<img class="past-event__image" src="https://dummyimage.com/160x90/000/fff" alt="">
-					</div>
+					<!-- <div class="pastEvent">
+						<h2 class="pastEvent__head">Event Title</h2>
+						<p class="pastEvent__date">February 24th, 2020 at 6:30 PM</p>
+						<div class="pastEvent__image"></div>
+					</div> -->
 				</div>
 			</div>
 
@@ -60,21 +85,63 @@
 		<h1 class="board__head">ACM Board</h1>
 		<div class="board__wrapper">
 			<div class="board__member">
-				<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
-				<h2 class="member__head">Caleb Kish</h2>
-				<p class="member__title">Webmaster</p>
+				<div class="member__top">
+					<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
+				</div>
+				<h2 class="member__head">First Last</h2>
+				<p class="member__title">Title</p>
+			</div>
+			<div class="board__member">
+				<div class="member__top">
+					<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
+				</div>
+				<h2 class="member__head">First Last</h2>
+				<p class="member__title">Title</p>
+			</div>
+			<div class="board__member">
+				<div class="member__top">
+					<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
+				</div>
+				<h2 class="member__head">First Last</h2>
+				<p class="member__title">Title</p>
+			</div>
+			<div class="board__member">
+				<div class="member__top">
+					<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
+				</div>
+				<h2 class="member__head">First Last</h2>
+				<p class="member__title">Title</p>
 			</div>
 		</div>
 	</section>
 
-	<footer>This is the footer</footer>
+	<section class="contact">
+		<h1 class="contact__head">Send us a Message</h1>
+		<form class="contact__form">
+			<input class="contact__firstname" type="text" name="firstname" placeholder="First name">
+			<input class="contact__lastname" type="text" name="lastname" placeholder="Last name">
+			<input class="contact__email" type="email" name="email" placeholder="Email">
+			<textarea class="contact__message" name="message" placeholder="Message"></textarea>
+			<input class="contact__submit" type="submit" value="Submit">
+		</form>
+	</section>
+
+	<footer>
+		<div class="footer__social">
+			<a class="social__link" href="https://www.facebook.com/acmmsu/" target="_blank"><i class="fab fa-facebook-square"></i></a>
+			<a class="social__link" href="https://twitter.com/ACM_MSU" target="_blank"><i class="fab fa-twitter"></i></a>
+			<a class="social__link" href="mailto:acm@cse.msu.edu"><i class="fas fa-envelope"></i></a>
+			
+		</div>
+	</footer>
 
 	<script src="node_modules/@glidejs/glide/dist/glide.min.js" type="application/javascript"></script>
+	<script src="node_modules/typed.js/lib/typed.min.js" type="application/javascript"></script>
 	
-	<script src="js/Ui.js" type="application/javascript"></script>
-	<script src="js/AcmEvent.js" type="application/javascript"></script>
+	<script src="assets/js/Ui.js" type="application/javascript"></script>
+	<script src="assets/js/AcmEvent.js" type="application/javascript"></script>
 
 	<!-- Dependencies must go before the index script -->
-	<script src="js/index.js" type="application/javascript"></script>
+	<script src="assets/js/index.js" type="application/javascript"></script>
 </body>
 </html>

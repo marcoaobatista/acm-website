@@ -1,0 +1,81 @@
+.contact {
+    background: $grey-600;
+    padding: 64px 0;
+}
+
+.contact__head {
+    font-family: 'Montserrat', sans-serif;
+    padding: 16px 0;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    margin-bottom: 32px;
+    color: $grey-100;
+}
+
+.contact__head::after {
+    display: block;
+    content: "";
+    padding-bottom: 8px;
+    border-bottom: 3px solid $grey-100;
+    height: 4px;
+    width: 64px;
+    margin: 0 auto;
+}
+
+.contact__form {
+    padding: 0 30px 30px 30px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.contact__firstname, .contact__lastname, .contact__email {
+    width: 100%;
+    font-size: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 2px solid $grey-600;
+    background: $grey-100;
+    border-radius: 12px;
+}
+
+.contact__firstname:focus,
+.contact__lastname:focus,
+.contact__email:focus,
+.contact__message:focus {
+    border: 2px solid $primary-500;
+    transition-property: border-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.contact__message {
+    width: 100%;
+    resize: none;
+    border: 2px solid $grey-600;
+    padding: 16px;
+    background: $grey-100;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    height: 200px;
+    overflow: auto;
+}
+
+.contact__submit {
+    margin: 0 auto;
+    display: block;
+    font-size: 18px;
+    padding: 16px 18px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient($primary-500, $accent-500);
+    background: none;
+    color: $grey-100;
+    cursor: pointer;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}

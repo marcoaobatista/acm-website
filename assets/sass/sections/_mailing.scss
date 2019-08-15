@@ -1,0 +1,62 @@
+section.mailing {
+    background: linear-gradient( $primary-500, $accent-600);
+    padding: 64px 0;
+}
+
+.mailing__head {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 800;
+    margin-bottom: 32px;
+    color: $primary-100;
+    margin: 0;
+    padding: 32px 24px 16px 24px;
+}
+
+.mailing__info {
+    text-align: center;
+    color: $accent-200;
+    margin-bottom: 16px;
+    font-size: 18px;
+}
+
+.mailing__form {
+    padding: 0 30px 30px 30px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.mailing__email {
+    width: 100%;
+    font-size: 16px;
+    padding: 16px;
+    border: 2px solid transparent;
+    background-color: $accent-100;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.mailing__email:focus {
+    border: 2px solid $accent-500;
+    transition-property: border-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.mailing__submit {
+    margin: 0 auto;
+    display: block;
+    font-size: 18px;
+    padding: 0px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    color: $accent-100;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+}

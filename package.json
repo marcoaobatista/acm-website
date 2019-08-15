@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass --watch assets/sass/index.scss assets/css/index.css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@glidejs/glide": "^3.3.0"
+    "@glidejs/glide": "^3.3.0",
+    "sass": "^1.22.9",
+    "typed.js": "^2.0.10"
   }
 }
