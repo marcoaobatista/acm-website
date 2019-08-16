@@ -1,6 +1,7 @@
 ## Getting started
 
-`npn install`
+`npm install`: This will install all dependencies required for the project in 
+the node_modules folder.
 
 Have a look at ./testing.html as a reference for the color palette.
 
