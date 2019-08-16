@@ -1,0 +1,39 @@
+.header {
+    background: linear-gradient(135deg, #20cf6c 0%,#009991 100%);
+    padding: 64px 32px;
+
+    &__title {
+        text-align: center;
+        color: $primary-100;
+        margin-bottom: 32px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    &__subtitle {
+        text-align: center;
+        color: $accent-200;
+        font-size: 20px;
+    }
+
+    &__typed {
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__who {
+        text-align: center;
+        color: $accent-200;
+        font-family: monospace;
+        font-size: 30px;
+        display: inline;
+    }
+}
+
+.typed-cursor {
+    color: $accent-200;
+    font-size: 30px;
+}

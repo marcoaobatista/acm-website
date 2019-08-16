@@ -3,7 +3,7 @@ var ui = new Ui();
 var rawEvents = [
     {
         'title': 'Hacking Workshop by @amirootyet',
-        'date': '2019-03-20T18:30:00',
+        'date': '2018-03-20T18:30:00',
         'location': '1279 Anthony Hall',
         'description': 'Interested in learning about system flaws and issues? Perhaps you\'d been hacked before and would like to learn more about how security isses arise? We will be having Pranshu Bajpai, a graduate student under Professor Enbody be doing demos showcasing the flaws that exist from everyday software you might encounter.',
         'image': 'https://gallery.mailchimp.com/59eef9f23d14282ba12289188/images/6509eff3-ac46-413d-9893-9aab156e9da6.png',
