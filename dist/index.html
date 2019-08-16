@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
 	<title>ACM@MSU</title>
 	
 	<!-- Google Fonts -->
@@ -21,14 +21,12 @@
 </head>
 <body>
 	<header class="header">
-		
 		<div class="header__wrapper">
 			<h1 class="header__title">acm@msu</h1>
 			<h4 class="header__subtitle">Weekly tech talks, workshops, and open hacks for</h4>
 			<div class="header__typed">
 				<h4 class="header__who"></h4>
 			</div>
-			
 		</div>
 		<div class="header__background"></div>
 	</header>
@@ -43,15 +41,35 @@
 	<section class="mailing">
 		<h1 class="mailing__head">Want to be notified on the next event?</h1>
 		<p class="mailing__info">Subscribe to our mailing list!</p>
-		<form class="mailing__form">
-			<input class="mailing__email" type="email" name="email" placeholder="Email">
-			<input class="mailing__submit" type="submit" value="Subscribe">
-		</form>
+
+		<div id="mc_embed_signup">
+			<form class="mailing__form" action="https://msu.us7.list-manage.com/subscribe/post?u=59eef9f23d14282ba12289188&amp;id=7faec3c80f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+				<div id="mc_embed_signup_scroll">
+
+						<input type="email" value="" name="EMAIL" class="mailing__email" id="mce-EMAIL" placeholder="Email">
+					
+					<div id="mce-responses" class="clear">
+						<div class="response" id="mce-error-response" style="display:none"></div>
+						<div class="response" id="mce-success-response" style="display:none"></div>
+					</div>
+					
+					<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+					<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_59eef9f23d14282ba12289188_7faec3c80f" tabindex="-1" value=""></div>
+					<div class="clear">
+						<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="mailing__submit">
+					</div>
+				</div>
+			</form>
+		</div>
+		<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+
+		
 	</section>
 
 	<section class="past">
 		<h1 class="past__head">Past Events</h1>
 		
+		<div class="carousel-overlay"></div>
 		<div class="carousel glide">
 			<div class="glide__track" data-glide-el="track">
 				<div class="past__events glide__slides"></div>
@@ -101,8 +119,7 @@
 	<section class="contact">
 		<h1 class="contact__head">Send us a Message</h1>
 		<form class="contact__form" name="contact" method="POST" data-netlify="true">
-			<input class="contact__firstname" type="text" name="firstname" placeholder="First name">
-			<input class="contact__lastname" type="text" name="lastname" placeholder="Last name">
+			<input class="contact__name" type="text" name="name" placeholder="Name">
 			<input class="contact__email" type="email" name="email" placeholder="Email">
 			<textarea class="contact__message" name="message" placeholder="Message"></textarea>
 			<input class="contact__submit" type="submit" value="Submit">
@@ -114,7 +131,6 @@
 			<a class="social__link" href="https://www.facebook.com/acmmsu/" target="_blank"><i class="fab fa-facebook-square"></i></a>
 			<a class="social__link" href="https://twitter.com/ACM_MSU" target="_blank"><i class="fab fa-twitter"></i></a>
 			<a class="social__link" href="mailto:acm@cse.msu.edu"><i class="fas fa-envelope"></i></a>
-			
 		</div>
 	</footer>
 

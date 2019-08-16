@@ -11,6 +11,7 @@
     letter-spacing: 1px;
     font-weight: 800;
     color: $grey-900;
+    font-size: 24px;
 }
 
 .events__head::after {
@@ -51,8 +52,8 @@
     font-family: 'Montserrat', sans-serif;
     letter-spacing: 1px;
     font-size: 24px;
-    line-height: 20px;
-    margin-bottom: 16px;
+    line-height: 30px;
+    margin-bottom: 12px;
     color: $grey-800;
 }
 
@@ -77,20 +78,23 @@
 .event__desc {
     font-size: 16px;
     line-height: 22px;
-    margin-top: 12px;
+    margin: 24px 0;
     color: $grey-700;
 }
 
 .event__image {
     width: 100%;
     margin-top: 16px;
-    border-radius: 8px;
+    border-radius: 12px;
+    max-height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 300px;
 }
 
 @media only screen and (min-width: 768px) {
     .events {
-        padding: 64px 24px 16px 24px;
-        
+        padding: 64px 24px 64px 24px;
     }
 
     .events__head {

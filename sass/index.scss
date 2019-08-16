@@ -13,18 +13,9 @@
 }
 
 .header {
-    background: linear-gradient( $primary-500, $accent-600 );
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center;
-    background-size: cover;
-    // box-shadow: 0 10px 29px hsla(0, 0%, 0%, .45), 0 3px 6px hsla(0, 0%, 0%, .20);
-    // height: 100vh;
-    padding: 32px;
-}
-
-.header__wrapper {
-    
+    background: linear-gradient(135deg, #20cf6c 0%,#009991 100%);
+    // background-attachment: fixed;
+    padding: 64px 32px;
 }
 
 .header__background {
@@ -90,3 +81,4 @@ footer {
 @import './sections/past';
 @import './sections/board';
 @import './sections/contact';
+@import './sections/overlay';

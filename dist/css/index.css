@@ -10,12 +10,8 @@
 }
 
 .header {
-  background: linear-gradient(#20cf6c, #009991);
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center;
-  background-size: cover;
-  padding: 32px;
+  background: linear-gradient(135deg, #20cf6c 0%, #009991 100%);
+  padding: 64px 32px;
 }
 
 .header__background {
@@ -89,6 +85,7 @@ footer {
   letter-spacing: 1px;
   font-weight: 800;
   color: #070708;
+  font-size: 24px;
 }
 
 .events__head::after {
@@ -129,8 +126,8 @@ footer {
   font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
   font-size: 24px;
-  line-height: 20px;
-  margin-bottom: 16px;
+  line-height: 30px;
+  margin-bottom: 12px;
   color: #17171c;
 }
 
@@ -155,19 +152,23 @@ footer {
 .event__desc {
   font-size: 16px;
   line-height: 22px;
-  margin-top: 12px;
+  margin: 24px 0;
   color: #2e2e38;
 }
 
 .event__image {
   width: 100%;
   margin-top: 16px;
-  border-radius: 8px;
+  border-radius: 12px;
+  max-height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 300px;
 }
 
 @media only screen and (min-width: 768px) {
   .events {
-    padding: 64px 24px 16px 24px;
+    padding: 64px 24px 64px 24px;
   }
 
   .events__head {
@@ -196,8 +197,8 @@ footer {
     margin-bottom: 4%;
   }
 }
-section.mailing {
-  background: linear-gradient(#20cf6c, #009991);
+.mailing {
+  background: linear-gradient(135deg, #20cf6c 0%, #009991 100%);
   padding: 64px 0;
 }
 
@@ -209,7 +210,7 @@ section.mailing {
   margin-bottom: 32px;
   color: #f5fff9;
   margin: 0;
-  padding: 32px 24px 16px 24px;
+  padding: 0px 24px 16px 24px;
 }
 
 .mailing__info {
@@ -220,7 +221,7 @@ section.mailing {
 }
 
 .mailing__form {
-  padding: 0 30px 30px 30px;
+  padding: 0 30px 0 30px;
   max-width: 400px;
   margin: 0 auto;
 }
@@ -258,22 +259,30 @@ section.mailing {
   font-family: "Montserrat", sans-serif;
 }
 
+.response {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #cffcfa;
+}
+.response a {
+  color: #cffcfa;
+}
+
 .past {
   padding: 64px 0;
   background: #2e2e38;
   background-size: cover;
   background-repeat: no-repeat;
+  position: relative;
 }
 
 .past__head {
   font-family: "Montserrat", sans-serif;
-  margin: 16px 0;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 800;
   color: #f9f9fa;
-  margin-bottom: 64px;
 }
 
 .past__head::after {
@@ -285,6 +294,19 @@ section.mailing {
   width: 64px;
   margin: 0 auto;
   margin-bottom: 32px;
+}
+
+.carousel-overlay {
+  background: linear-gradient(to right, #2e2e38 0%, rgba(46, 46, 56, 0) 25%, rgba(46, 46, 56, 0) 50%, rgba(46, 46, 56, 0) 75%, #2e2e38 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  display: none;
+  pointer-events: none;
 }
 
 .pastEvent {
@@ -302,8 +324,8 @@ section.mailing {
   font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
   font-size: 24px;
-  line-height: 20px;
-  margin-bottom: 16px;
+  line-height: 30px;
+  margin-bottom: 12px;
 }
 
 .pastEvent__date {
@@ -330,11 +352,11 @@ section.mailing {
 .pastEvent__image {
   width: 100%;
   margin-top: 16px;
-  border-radius: 8px;
+  border-radius: 12px;
+  height: 300px;
 }
 
 .glide__arrow {
-  z-index: 100;
   position: absolute;
   top: 50%;
   border-radius: 50%;
@@ -342,17 +364,22 @@ section.mailing {
   height: 40px;
   font-size: 20px;
   border: none;
-  background-color: #73738c;
-  color: #f9f9fa;
+  background: linear-gradient(#20cf6c, #009991);
+  color: #cffcfa;
   font-weight: bolder;
   cursor: pointer;
   transition-property: background-color;
   transition-duration: 0.5s;
   transition-timing-function: ease;
+  z-index: 900;
 }
 
 .glide__arrow:hover {
-  background-color: #a2a2b3;
+  background-color: linear-gradient(#20cf6c, #009991);
+}
+
+.glide__arrow:focus {
+  outline: none;
 }
 
 .glide__arrow--left {
@@ -364,38 +391,30 @@ section.mailing {
 }
 
 @media only screen and (min-width: 675px) {
-  .past {
-    padding-bottom: 100px;
-  }
-
-  .glide__arrow {
-    top: auto;
-    bottom: -70px;
-  }
-
   .glide__arrow--left {
-    left: 45%;
-    margin-right: 16px;
+    left: 5%;
   }
 
   .glide__arrow--right {
-    right: 45%;
-    margin-left: 16px;
+    right: 5%;
+  }
+
+  .carousel-overlay {
+    display: block;
+  }
+
+  .past__head::after {
+    margin-bottom: 48px;
   }
 }
-@media only screen and (min-width: 768px) {
-  .past__head {
-    margin-bottom: 64px;
-  }
-}
-section.board {
+.board {
   padding: 64px 0;
   background: #f9f9fa;
 }
 
 .board__head {
   font-family: "Montserrat", sans-serif;
-  margin: 16px 0 128px 0;
+  margin: 0 0 128px 0;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -416,6 +435,7 @@ section.board {
 .board__wrapper {
   padding: 0 64px;
   margin: 0 auto;
+  max-width: 1200px;
 }
 
 .board__member {
@@ -426,8 +446,8 @@ section.board {
   padding: 24px;
   margin-top: 84px;
   padding-top: 64px;
-  max-width: 300px;
   margin: 84px auto 96px auto;
+  max-width: 300px;
 }
 
 .board__member:last-child {
@@ -460,35 +480,43 @@ section.board {
   width: 125px;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 681px) {
   .board__head {
-    margin-bottom: 0px;
+    margin-bottom: 16px;
   }
 
   .board__wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    overflow: auto;
   }
 
   .board__member {
+    float: left;
     width: 46%;
-    margin: 128px 2% 0 2%;
+    margin: 100px 2% 3% 2%;
+    max-width: initial;
   }
 
   .board__member:last-child {
-    margin-bottom: auto;
+    margin-bottom: 40px;
+  }
+
+  .board {
+    padding-bottom: 24px;
+  }
+}
+@media only screen and (min-width: 928px) {
+  .board__member {
+    width: 27.33%;
+    margin: 100px 3% 3% 3%;
   }
 }
 .contact {
   background: #454554;
-  padding: 64px 0;
+  padding: 64px 0 16px 0;
 }
 
 .contact__head {
   font-family: "Montserrat", sans-serif;
-  padding: 16px 0;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -509,11 +537,11 @@ section.board {
 
 .contact__form {
   padding: 0 30px 30px 30px;
-  max-width: 400px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
-.contact__firstname, .contact__lastname, .contact__email {
+.contact__name, .contact__email {
   width: 100%;
   font-size: 16px;
   padding: 16px;
@@ -540,7 +568,7 @@ section.board {
   padding: 16px;
   background: #f9f9fa;
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   height: 200px;
   overflow: auto;
 }
@@ -549,12 +577,99 @@ section.board {
   margin: 0 auto;
   display: block;
   font-size: 18px;
-  padding: 16px 18px;
+  padding: 0;
   border-radius: 10px;
   border: none;
   background: linear-gradient(#20cf6c, #01b4ab);
   background: none;
   color: #f9f9fa;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media only screen and (min-width: 768px) {
+  .contact__name, .contact__email {
+    width: 48%;
+    float: left;
+  }
+
+  .contact__name {
+    margin-right: 10px;
+  }
+
+  .contact__email {
+    margin-left: 10px;
+  }
+}
+.eventOverlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(#009942, #009991);
+  z-index: 200;
+  padding: 96px;
+}
+
+.eventOverlay__back {
+  margin-bottom: 32px;
+}
+
+.eventOverlay__back a {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
+}
+
+.eventOverlay__title {
+  color: #f9f9fa;
+  text-align: center;
+  margin-bottom: 32px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.eventForm__title, .eventForm__date, .eventForm__location, .eventForm__image {
+  width: 100%;
+  font-size: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 2px solid #454554;
+  background: #f9f9fa;
+  border-radius: 12px;
+}
+
+.eventForm__imageDescription, .eventForm__description {
+  width: 100%;
+  resize: none;
+  border: 2px solid #454554;
+  padding: 16px;
+  background: #f9f9fa;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  height: 200px;
+  overflow: auto;
+}
+
+.eventForm__submit {
+  margin: 0 auto;
+  display: block;
+  font-size: 18px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(#20cf6c, #01b4ab);
+  background: #f9f9fa;
+  color: #070708;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1px;

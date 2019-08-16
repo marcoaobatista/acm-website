@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch sass/index.scss dist/css/index.css"
+    "sass": "sass --watch sass/index.scss dist/css/index.css",
+    "lambda-serve": "netlify-lambda serve functions",
+    "lambda-build": "netlify-lambda build functions"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
+    "netlify-lambda": "^1.5.1",
     "sass": "^1.22.9",
     "typed.js": "^2.0.10"
   }

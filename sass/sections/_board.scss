@@ -1,11 +1,11 @@
-section.board {
+.board {
     padding: 64px 0;
     background: $grey-100;
 }
 
 .board__head {
     font-family: 'Montserrat', sans-serif;
-    margin: 16px 0 128px 0;
+    margin: 0 0 128px 0;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -26,6 +26,7 @@ section.board {
 .board__wrapper {
     padding: 0 64px;
     margin: 0 auto;
+    max-width: 1200px;
 }
 
 .board__member {
@@ -36,8 +37,8 @@ section.board {
     padding: 24px;
     margin-top: 84px;
     padding-top: 64px;
-    max-width: 300px;
     margin: 84px auto 96px auto;
+    max-width: 300px;
 }
 
 .board__member:last-child {
@@ -80,24 +81,34 @@ section.board {
 //     height:100%;
 // }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 681px) {
     .board__head {
-        margin-bottom: 0px;
+        margin-bottom: 16px;
     }
 
     .board__wrapper {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        overflow: auto;
     }
 
     .board__member {
+        float: left;
         width: 46%;
-        margin: 128px 2% 0 2%;
+        margin: 100px 2% 3% 2%;
+        max-width: initial;
     }
 
     .board__member:last-child {
-        margin-bottom: auto;
+        margin-bottom: 40px;
+    }
+
+    .board {
+        padding-bottom: 24px;
+    }
+}
+
+@media only screen and (min-width: 928px) {
+    .board__member {
+        width: 27.33%;
+        margin: 100px 3% 3% 3%;
     }
 }

@@ -1,11 +1,10 @@
 .contact {
     background: $grey-600;
-    padding: 64px 0;
+    padding: 64px 0 16px 0;
 }
 
 .contact__head {
     font-family: 'Montserrat', sans-serif;
-    padding: 16px 0;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -26,11 +25,11 @@
 
 .contact__form {
     padding: 0 30px 30px 30px;
-    max-width: 400px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
-.contact__firstname, .contact__lastname, .contact__email {
+.contact__name, .contact__email {
     width: 100%;
     font-size: 16px;
     padding: 16px;
@@ -38,6 +37,7 @@
     border: 2px solid $grey-600;
     background: $grey-100;
     border-radius: 12px;
+    
 }
 
 .contact__firstname:focus,
@@ -57,7 +57,7 @@
     padding: 16px;
     background: $grey-100;
     border-radius: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     height: 200px;
     overflow: auto;
 }
@@ -66,7 +66,7 @@
     margin: 0 auto;
     display: block;
     font-size: 18px;
-    padding: 16px 18px;
+    padding: 0;
     border-radius: 10px;
     border: none;
     background: linear-gradient($primary-500, $accent-500);
@@ -78,4 +78,19 @@
     letter-spacing: 1px;
     font-weight: 800;
     font-family: 'Montserrat', sans-serif;
+}
+
+@media only screen and (min-width: 768px) {
+    .contact__name, .contact__email {
+        width: 48%;
+        float: left;
+    }
+
+    .contact__name {
+        margin-right: 10px;
+    }
+
+    .contact__email {
+        margin-left: 10px;
+    }
 }

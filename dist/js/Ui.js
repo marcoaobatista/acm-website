@@ -50,10 +50,12 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
     description.innerHTML = event.description;
     description.className = 'event__desc';
 
-    var image = document.createElement('img');
-    image.src = event.image;
+    var image = document.createElement('div');
     image.className = 'event__image';
     image.alt = event.imageDescription;
+    image.style.background = 'url(' + event.image + ')';
+    image.style.backgroundRepeat = 'no-repeat';
+    image.style.backgroundSize = 'cover';
 
     var eventHtml = document.createElement('div');
     eventHtml.className = 'event';
@@ -79,11 +81,12 @@ Ui.prototype.constructPastEventHtml = function(event) {
     date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.date, true);
     date.className = 'pastEvent__date';
 
-    var image = document.createElement('img');
-    image.src = event.image;
+    var image = document.createElement('div');
     image.className = 'pastEvent__image';
     image.alt = event.imageDescription;
-    // image.style.background = 'url(' + event.image + ')';
+    image.style.background = 'url(' + event.image + ')';
+    image.style.backgroundRepeat = 'no-repeat';
+    image.style.backgroundSize = 'cover';
 
     var eventHtml = document.createElement('div');
     eventHtml.className = 'pastEvent glide__slide';
