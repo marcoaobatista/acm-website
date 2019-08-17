@@ -10,7 +10,10 @@
   font-family: "Lato", sans-serif;
 }
 
-input:focus, textarea:focus, button:focus {
+input, textarea, button {
+  outline: none;
+}
+input:focus, input:active, input:focus-within, textarea:focus, textarea:active, textarea:focus-within, button:focus, button:active, button:focus-within {
   outline: none;
 }
 
@@ -353,11 +356,12 @@ input:focus, textarea:focus, button:focus {
   transition-duration: 0.5s;
   transition-timing-function: ease;
   z-index: 900;
+  outline: none;
 }
 .glide__arrow:hover {
   background-color: linear-gradient(#20cf6c, #009991);
 }
-.glide__arrow:focus {
+.glide__arrow:focus, .glide__arrow:active, .glide__arrow:focus-within {
   outline: none;
 }
 .glide__arrow--left {
@@ -424,7 +428,8 @@ input:focus, textarea:focus, button:focus {
   margin: 0 auto;
   max-width: 1200px;
 }
-.board__member {
+
+.member {
   position: relative;
   background: #fff;
   border-radius: 12px;
@@ -435,10 +440,15 @@ input:focus, textarea:focus, button:focus {
   margin: 84px auto 96px auto;
   max-width: 300px;
 }
-.board__member:last-child {
+.member:last-child {
   margin-bottom: 0;
 }
-
+.member__top {
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+}
 .member__head {
   text-align: center;
 }
@@ -448,12 +458,6 @@ input:focus, textarea:focus, button:focus {
   color: #070708;
   line-height: 22px;
   margin-top: 4px;
-}
-.member__top {
-  position: absolute;
-  top: -50%;
-  left: 0;
-  width: 100%;
 }
 .member__image {
   display: block;
@@ -471,14 +475,14 @@ input:focus, textarea:focus, button:focus {
     overflow: auto;
   }
 
-  .board__member {
+  .member {
     float: left;
     width: 46%;
     margin: 100px 2% 3% 2%;
     max-width: initial;
   }
 
-  .board__member:last-child {
+  .member:last-child {
     margin-bottom: 40px;
   }
 
@@ -487,7 +491,7 @@ input:focus, textarea:focus, button:focus {
   }
 }
 @media only screen and (min-width: 928px) {
-  .board__member {
+  .member {
     width: 27.33%;
     margin: 100px 3% 3% 3%;
   }

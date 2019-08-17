@@ -27,26 +27,31 @@
         margin: 0 auto;
         max-width: 1200px;
     }
-    
-    &__member {
-        position: relative;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 10px 29px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
-        padding: 24px;
-        margin-top: 84px;
-        padding-top: 64px;
-        margin: 84px auto 96px auto;
-        max-width: 300px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
 }
 
 
 .member {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 29px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
+    padding: 24px;
+    margin-top: 84px;
+    padding-top: 64px;
+    margin: 84px auto 96px auto;
+    max-width: 300px;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &__top {
+        position: absolute;
+        top: -50%;
+        left: 0;
+        width: 100%;
+    }
+    
     &__head {
         text-align: center;
     }
@@ -59,12 +64,7 @@
         margin-top: 4px;
     }
     
-    &__top {
-        position: absolute;
-        top: -50%;
-        left: 0;
-        width: 100%;
-    }
+    
     
     &__image {
         display: block;
@@ -84,14 +84,14 @@
         overflow: auto;
     }
 
-    .board__member {
+    .member {
         float: left;
         width: 46%;
         margin: 100px 2% 3% 2%;
         max-width: initial;
     }
 
-    .board__member:last-child {
+    .member:last-child {
         margin-bottom: 40px;
     }
 
@@ -101,7 +101,7 @@
 }
 
 @media only screen and (min-width: 928px) {
-    .board__member {
+    .member {
         width: 27.33%;
         margin: 100px 3% 3% 3%;
     }

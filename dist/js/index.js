@@ -33,7 +33,6 @@ var rawEvents = [
         'image': 'https://gallery.mailchimp.com/59eef9f23d14282ba12289188/images/6006957a-ee32-4968-8ee4-55a75ef2b2da.png',
         'imageDescription': 'Experience At Ford with Amanda LaBelle'
     },
-    
     {
         'title': 'Code Rush: Movie and Pizza Night!',
         'date': '2019-01-26T20:30:00',
@@ -41,8 +40,62 @@ var rawEvents = [
         'description': 'This event is a screening of the documentary Code Rush. Software engineers from Mozilla will be joining in the event to answer questions on working on Open-Source software! Pizza will be provided.',
         'image': 'https://gallery.mailchimp.com/59eef9f23d14282ba12289188/images/df219bc4-2fd8-4619-811f-016d91ad1686.png',
         'imageDescription': 'Code Rush: Movie and Pizza Night!'
+    },
+    {
+        'title': 'Sparticipation',
+        'date': '2019-08-27T16:00:00',
+        'location': 'Cherry Lane Field',
+        'description': 'Come visit our booth at Sparticipation to learn more about ACM and what you can look forward to throughout the year!',
+        'image': 'images/sparticipation.jpg',
+        'imageDescription': 'Sparticipation'
+    },
+    {
+        'title': 'CSE Mixer',
+        'date': '2019-08-29T19:00:00',
+        'location': 'The Hive, Wilson Hall',
+        'description': 'Learn more about MSU organizations such as ACM, Women in Computing (WIC), SpartanHackers, and Spartahack.',
+        'image': 'images/hive.jpg',
+        'imageDescription': 'The Hive at MSU'
     }
 ];
+
+var rawBoard = [
+    {
+        'name': 'Justin Newman',
+        'title': 'Co-President',
+        'image': 'https://dummyimage.com/90x90/000/fff'
+    },
+    {
+        'name': 'Rohit Sen',
+        'title': 'Co-President',
+        'image': 'https://dummyimage.com/90x90/000/fff'
+    },
+    {
+        'name': 'Kingston Tran',
+        'title': 'Secretary',
+        'image': 'https://dummyimage.com/90x90/000/fff'
+    },
+    {
+        'name': 'Andrew Kim',
+        'title': 'Treasurer',
+        'image': 'https://dummyimage.com/90x90/000/fff'
+    },
+    {
+        'name': 'Caleb Kish',
+        'title': 'Co-Webmaster',
+        'image': 'https://dummyimage.com/90x90/000/fff'
+    },
+    {
+        'name': 'Nahom Ghebredngl',
+        'title': 'Co-Webmaster',
+        'image': 'https://dummyimage.com/90x90/000/fff'
+    },
+    {
+        'name': 'Kevin Le',
+        'title': 'Social Media',
+        'image': 'https://dummyimage.com/90x90/000/fff'
+    }
+]
 
 var events = [];
 var i = 0;
@@ -55,15 +108,21 @@ for (var i=0; i < events.length; i++) {
     ui.addEvent(events[i]);
 }
 
+for (var i=0; i < rawBoard.length; i++) {
+    ui.addMember(rawBoard[i]);
+}
+
 // Initialize the slider only AFTER the events are added to the UI
 ui.constructSlider('.glide');
 
-var options = {
+// Typed
+var typedOptions = {
   strings: ['students', 'developers', 'hobbyists', 'spartans'],
   typeSpeed: 100,
   startDelay: 300,
   backSpeed: 50,
-  backDelay: 3000
+  backDelay: 3000,
+  loop: true
 }
 
-var typed = new Typed(".header__who", options);
+var typed = new Typed(".header__who", typedOptions);

@@ -92,12 +92,13 @@
     transition-duration: 0.5s;
     transition-timing-function: ease;
     z-index: 900;
+    outline: none;
 
     &:hover {
         background-color: linear-gradient($primary-500, $accent-600);
     }
     
-    &:focus { 
+    &:focus, &:active, &:focus-within { 
         outline: none;
     }
     

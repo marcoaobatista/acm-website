@@ -30,6 +30,14 @@ Ui.prototype.addEvent = function(event) {
     }
 }
 
+/* Adds a board member to the UI
+@param  {AcmEvent}    event */
+Ui.prototype.addMember = function(member) {
+    var memberHtml = this.constructMemberHtml(member);
+
+    document.querySelector('.board__wrapper').appendChild(memberHtml);
+}
+
 /* Constructs HTML for upcoming event
 @param  {AcmEvent}          event
 @return {HTMLDivElement}    HTML that can be appended to the page */
@@ -96,6 +104,37 @@ Ui.prototype.constructPastEventHtml = function(event) {
     eventHtml.appendChild(image);
 
     return eventHtml;
+}
+
+/* Constructs HTML for board member
+@param  {AcmEvent}          event
+@return {HTMLDivElement}    HTML that can be appended to the page */
+Ui.prototype.constructMemberHtml = function(member) {
+    var top = document.createElement('div');
+    top.className = 'member__top';
+
+    var image = document.createElement('img');
+    image.className = 'member__image';
+    image.src = member.image;
+
+    top.appendChild(image);
+
+    var head = document.createElement('h2');
+    head.className = 'member__head';
+    head.innerHTML = member.name;
+
+    var title = document.createElement('p');
+    title.className = 'member__title';
+    title.innerHTML = member.title;
+
+    var memberHtml = document.createElement('div');
+    memberHtml.className = 'member';
+
+    memberHtml.appendChild(top);
+    memberHtml.appendChild(head);
+    memberHtml.appendChild(title);
+
+    return memberHtml;
 }
 
 /* Initializes a slider on the selected element

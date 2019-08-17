@@ -12,8 +12,12 @@
 }
 
 
-input:focus, textarea:focus, button:focus { 
+input, textarea, button {
     outline: none;
+
+    &:focus, &:active, &:focus-within { 
+        outline: none;
+    }
 }
 
 

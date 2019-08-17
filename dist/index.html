@@ -71,44 +71,15 @@
 
 	<section class="board">
 		<h1 class="board__head">ACM Board</h1>
-		<div class="board__wrapper">
-			<div class="board__member">
-				<div class="member__top">
-					<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
-				</div>
-				<h2 class="member__head">First Last</h2>
-				<p class="member__title">Title</p>
-			</div>
-			<div class="board__member">
-				<div class="member__top">
-					<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
-				</div>
-				<h2 class="member__head">First Last</h2>
-				<p class="member__title">Title</p>
-			</div>
-			<div class="board__member">
-				<div class="member__top">
-					<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
-				</div>
-				<h2 class="member__head">First Last</h2>
-				<p class="member__title">Title</p>
-			</div>
-			<div class="board__member">
-				<div class="member__top">
-					<img class="member__image" src="https://dummyimage.com/90x90/000/fff" alt="">
-				</div>
-				<h2 class="member__head">First Last</h2>
-				<p class="member__title">Title</p>
-			</div>
-		</div>
+		<div class="board__wrapper"></div>
 	</section>
 
 	<section class="contact">
 		<h1 class="contact__head">Send us a Message</h1>
 		<form class="contact__form" name="contact" method="POST" data-netlify="true">
-			<input class="contact__name" type="text" name="name" placeholder="Name">
-			<input class="contact__email" type="email" name="email" placeholder="Email">
-			<textarea class="contact__message" name="message" placeholder="Message"></textarea>
+			<input class="contact__name" type="text" name="name" placeholder="Name" required>
+			<input class="contact__email" type="email" name="email" placeholder="Email" required>
+			<textarea class="contact__message" name="message" placeholder="Message" required></textarea>
 			<input class="contact__submit" type="submit" value="Submit">
 		</form>
 	</section>
