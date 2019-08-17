@@ -10,6 +10,10 @@
   font-family: "Lato", sans-serif;
 }
 
+input:focus, textarea:focus, button:focus {
+  outline: none;
+}
+
 /* montserrat-regular - latin */
 @font-face {
   font-family: "Montserrat";
@@ -524,7 +528,7 @@
   background: #f9f9fa;
   border-radius: 12px;
 }
-.contact__firstname:focus, .contact__lastname:focus, .contact__email:focus, .contact__message:focus {
+.contact__name:focus, .contact__email:focus, .contact__message:focus {
   border: 2px solid #20cf6c;
   transition-property: border-color;
   transition-duration: 0.5s;
@@ -540,6 +544,7 @@
   margin-bottom: 24px;
   height: 200px;
   overflow: auto;
+  font-size: 16px;
 }
 .contact__submit {
   margin: 0 auto;

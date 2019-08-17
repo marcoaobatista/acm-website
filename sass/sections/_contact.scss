@@ -38,8 +38,7 @@
         border-radius: 12px;
     }
     
-    &__firstname:focus,
-    &__lastname:focus,
+    &__name:focus,
     &__email:focus,
     &__message:focus {
         border: 2px solid $primary-500;
@@ -58,6 +57,7 @@
         margin-bottom: 24px;
         height: 200px;
         overflow: auto;
+        font-size: 16px;
     }
     
     &__submit {
