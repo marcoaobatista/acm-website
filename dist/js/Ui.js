@@ -61,7 +61,7 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
     var image = document.createElement('div');
     image.className = 'event__image';
     image.alt = event.imageDescription;
-    image.style.background = 'url(' + event.image + ')';
+    image.style.backgroundImage = 'url(' + event.image + ')';
     image.style.backgroundRepeat = 'no-repeat';
     image.style.backgroundSize = 'cover';
 
@@ -250,4 +250,48 @@ Ui.prototype.formatDate = function(d, isPast) {
         meridiemHours + ':' + minutesString + ' ' + meridiem;
 
     return dateString;
+}
+
+/* Initializes dynamic "typed" text on param element
+@param  {String}             element */
+Ui.prototype.constructTyped = function(element) {
+    var typedOptions = {
+        strings: ['students', 'developers', 'hobbyists', 'spartans'],
+        typeSpeed: 100,
+        startDelay: 300,
+        backSpeed: 50,
+        backDelay: 3000,
+        loop: true
+    }
+    
+    new Typed(element, typedOptions);
+}
+
+Ui.prototype.initializeLightbox = function() {
+    var pastEventImages = document.getElementsByClassName('pastEvent__image');
+    var upcomingEventImages = document.getElementsByClassName('event__image');
+
+    var imageClickEvent = function(image) {
+        var lightbox = document.querySelector('.lightbox');
+        var lightboxImage = document.querySelector('.lightbox__image');
+        lightboxImage.src = image;
+        lightbox.style.display = 'flex';
+    }
+
+    for (var i=0; i < pastEventImages.length; i++) {
+        var imageUrl = window.getComputedStyle(pastEventImages[i]).getPropertyValue('background-image').split('"')[1];
+        pastEventImages[i].addEventListener('click', imageClickEvent.bind(null, imageUrl));
+    }
+
+    for (var i=0; i < upcomingEventImages.length; i++) {
+        var imageUrl = window.getComputedStyle(upcomingEventImages[i]).getPropertyValue('background-image').split('"')[1];
+        upcomingEventImages[i].addEventListener('click', imageClickEvent.bind(null, imageUrl));
+    }
+
+    // Close button functionality
+    var lightboxClose = document.querySelector('.lightbox__close');
+    lightboxClose.addEventListener('click', function() {
+        var lightbox = document.querySelector('.lightbox');
+        lightbox.style.display = 'none';
+    });
 }

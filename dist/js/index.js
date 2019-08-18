@@ -100,29 +100,18 @@ var rawBoard = [
 var events = [];
 var i = 0;
 
-for (var i=0; i < rawEvents.length; i++) {
+for (var i=0; i < rawEvents.length; i++)
     events.push(new AcmEvent(rawEvents[i]));
-}
 
-for (var i=0; i < events.length; i++) {
+for (var i=0; i < events.length; i++)
     ui.addEvent(events[i]);
-}
 
-for (var i=0; i < rawBoard.length; i++) {
+for (var i=0; i < rawBoard.length; i++)
     ui.addMember(rawBoard[i]);
-}
+
+ui.constructTyped('.header__who');
 
 // Initialize the slider only AFTER the events are added to the UI
 ui.constructSlider('.glide');
 
-// Typed
-var typedOptions = {
-  strings: ['students', 'developers', 'hobbyists', 'spartans'],
-  typeSpeed: 100,
-  startDelay: 300,
-  backSpeed: 50,
-  backDelay: 3000,
-  loop: true
-}
-
-var typed = new Typed(".header__who", typedOptions);
+ui.initializeLightbox();

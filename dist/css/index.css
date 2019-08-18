@@ -57,6 +57,39 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   src: local("Lato Regular"), local("Lato-Regular"), url("../webfonts/lato/lato-v16-latin-regular.eot?#iefix") format("embedded-opentype"), url("../webfonts/lato/lato-v16-latin-regular.woff2") format("woff2"), url("../webfonts/lato/lato-v16-latin-regular.woff") format("woff"), url("../webfonts/lato/lato-v16-latin-regular.ttf") format("truetype"), url("../webfonts/lato/lato-v16-latin-regular.svg#Lato") format("svg");
   /* Legacy iOS */
 }
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  padding: 5%;
+  display: flex;
+  align-items: center;
+  display: none;
+}
+.lightbox__close {
+  color: #f9f9fa;
+  font-size: 36px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+.lightbox__image {
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .lightbox {
+    padding: 10%;
+  }
+}
 .header {
   padding: 64px 32px;
   position: relative;
@@ -200,6 +233,7 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 200px;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -364,6 +398,7 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   margin-bottom: 16px;
   border-radius: 12px;
   height: 200px;
+  cursor: pointer;
 }
 
 .glide__arrow {
