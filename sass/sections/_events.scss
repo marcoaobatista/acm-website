@@ -1,6 +1,6 @@
 .events {
     padding: 64px 24px;
-    background-color: $grey-200;
+    background: url('../images/lines.svg'), $grey-200;
 
     &__head {
         font-family: 'Montserrat', sans-serif;

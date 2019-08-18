@@ -1,5 +1,5 @@
 .footer {
-    background: linear-gradient($grey-600, $grey-800);
+    background: linear-gradient($grey-700, $grey-700);
 
     &__social {
         color: #fff;
@@ -9,7 +9,8 @@
         width: 50%;
         max-width: 300px;
         margin: 0 auto;
-        padding: 32px 0;
+        padding: 16px 0;
+        font-size: 24px;
     }
 }
 

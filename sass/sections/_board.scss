@@ -1,6 +1,7 @@
 .board {
     padding: 64px 0;
-    background: $grey-100;
+    background: url('../images/lines.svg'), $grey-200;
+    
 
     &__head {
         font-family: 'Montserrat', sans-serif;
@@ -32,7 +33,7 @@
 
 .member {
     position: relative;
-    background: #fff;
+    background: $grey-100;
     border-radius: 12px;
     box-shadow: 0 10px 29px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
     padding: 24px;

@@ -58,8 +58,32 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   /* Legacy iOS */
 }
 .header {
-  background: linear-gradient(135deg, #20cf6c 0%, #009991 100%);
   padding: 64px 32px;
+  position: relative;
+}
+.header:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  content: "";
+  background: linear-gradient(135deg, #20cf6c 0%, #009991 100%);
+  z-index: -100;
+  width: 100%;
+  height: 100%;
+}
+.header:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  content: "";
+  background: url("../images/simple-codelines.svg");
+  opacity: 0.125;
+  background-size: 100%;
+  z-index: -100;
+  width: 100%;
+  height: 100%;
 }
 .header__title {
   text-align: center;
@@ -95,7 +119,7 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 
 .events {
   padding: 64px 24px;
-  background-color: #e3e3e8;
+  background: url("../images/lines.svg"), #e3e3e8;
 }
 .events__head {
   font-family: "Montserrat", sans-serif;
@@ -403,7 +427,7 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 }
 .board {
   padding: 64px 0;
-  background: #f9f9fa;
+  background: url("../images/lines.svg"), #e3e3e8;
 }
 .board__head {
   font-family: "Montserrat", sans-serif;
@@ -431,7 +455,7 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 
 .member {
   position: relative;
-  background: #fff;
+  background: #f9f9fa;
   border-radius: 12px;
   box-shadow: 0 10px 29px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
   padding: 24px;
@@ -497,8 +521,9 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   }
 }
 .contact {
+  padding: 64px 0 64px 0;
   background: #454554;
-  padding: 64px 0 16px 0;
+  position: relative;
 }
 .contact__head {
   font-family: "Montserrat", sans-serif;
@@ -519,7 +544,7 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   margin: 0 auto;
 }
 .contact__form {
-  padding: 0 30px 30px 30px;
+  padding: 0 30px 0px 30px;
   max-width: 700px;
   margin: 0 auto;
 }
@@ -655,7 +680,7 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 }
 
 .footer {
-  background: linear-gradient(#454554, #17171c);
+  background: linear-gradient(#2e2e38, #2e2e38);
 }
 .footer__social {
   color: #fff;
@@ -665,7 +690,8 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   width: 50%;
   max-width: 300px;
   margin: 0 auto;
-  padding: 32px 0;
+  padding: 16px 0;
+  font-size: 24px;
 }
 
 .social__link {
