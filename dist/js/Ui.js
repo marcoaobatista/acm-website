@@ -68,11 +68,12 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
     var eventHtml = document.createElement('div');
     eventHtml.className = 'event';
 
+    eventHtml.appendChild(image);
     eventHtml.appendChild(title);
     eventHtml.appendChild(date);
-    eventHtml.appendChild(location);
+    eventHtml.appendChild(location);    
     eventHtml.appendChild(description);
-    eventHtml.appendChild(image);
+    
 
     return eventHtml;
 }
@@ -89,6 +90,10 @@ Ui.prototype.constructPastEventHtml = function(event) {
     date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.date, true);
     date.className = 'pastEvent__date';
 
+    var description = document.createElement('p');
+    description.innerHTML = event.description;
+    description.className = 'pastEvent__desc';
+
     var image = document.createElement('div');
     image.className = 'pastEvent__image';
     image.alt = event.imageDescription;
@@ -99,9 +104,11 @@ Ui.prototype.constructPastEventHtml = function(event) {
     var eventHtml = document.createElement('div');
     eventHtml.className = 'pastEvent glide__slide';
 
-    eventHtml.appendChild(title);
     eventHtml.appendChild(date);
     eventHtml.appendChild(image);
+    eventHtml.appendChild(title);
+    
+    eventHtml.appendChild(description);
 
     return eventHtml;
 }

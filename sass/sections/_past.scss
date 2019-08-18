@@ -28,15 +28,15 @@
 
 
 .pastEvent {
+    background: linear-gradient($grey-600, $grey-700);
     border-radius: 12px;
-    box-shadow: 0 10px 29px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
+    // box-shadow: 0 10px 29px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
     margin: 32px 0;
     padding: 24px;
     
     margin-top: 0;
     margin-bottom: 0;
     color: $grey-100;
-    background: $grey-600;
 
     &__head {
         font-family: 'Montserrat', sans-serif;
@@ -50,6 +50,7 @@
         line-height: 14px;
         font-size: 14px;
         color: $grey-300;
+        margin-bottom: 16px;
 
         & i {
             font-size: 18px;
@@ -64,14 +65,14 @@
         font-size: 16px;
         color: $grey-200;
         line-height: 22px;
-        margin-top: 16px;
+        margin-bottom: 16px;
     }
     
     &__image {
         width: 100%;
-        margin-top: 16px;
+        margin-bottom: 16px;
         border-radius: 12px;
-        height: 300px;
+        height: 200px;
     }
 }
 

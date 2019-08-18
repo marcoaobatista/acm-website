@@ -34,7 +34,7 @@
 
 
 .event {
-    background: $grey-100;
+    background: linear-gradient($grey-100, $accent-100);
     border-radius: 12px;
     box-shadow: 0 10px 29px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
     margin: 32px 0;
@@ -61,6 +61,10 @@
         margin-bottom: 8px;
     }
 
+    &__location {
+        margin-bottom: 12px;
+    }
+
     &__date, &__location {
         line-height: 14px;
         font-size: 14px;
@@ -78,18 +82,17 @@
     &__desc {
         font-size: 16px;
         line-height: 22px;
-        margin: 24px 0;
         color: $grey-700;
     }
 
     &__image {
         width: 100%;
-        margin-top: 16px;
+        margin-bottom: 16px;
         border-radius: 12px;
         max-height: 300px;
         background-size: cover;
         background-repeat: no-repeat;
-        min-height: 300px;
+        min-height: 200px;
     }
 }
 
