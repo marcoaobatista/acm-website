@@ -94,6 +94,11 @@ var rawBoard = [
         'name': 'Kevin Le',
         'title': 'Social Media',
         'image': 'https://dummyimage.com/90x90/000/fff'
+    },
+    {
+        'name': 'Sebnem Onsay',
+        'title': 'Faculty Advisor',
+        'image': 'https://dummyimage.com/90x90/000/fff'
     }
 ]
 

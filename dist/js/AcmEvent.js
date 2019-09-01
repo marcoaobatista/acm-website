@@ -18,9 +18,5 @@ function AcmEvent(event) {
     this.description = event.description;
     this.image = event.image;
     this.imageDescription = event.imageDescription;
-    this.past = false;
-
-    if (this.date < today) {
-        this.past = true;
-    }
+    this.past = (this.date < today);
 }
