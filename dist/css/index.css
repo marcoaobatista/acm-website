@@ -58,38 +58,32 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   /* Legacy iOS */
 }
 .lightbox {
+  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
   width: 100%;
   height: 100%;
-  z-index: 10000;
-  padding: 5%;
-  display: flex;
-  align-items: center;
-  display: none;
+  text-align: center;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
-.lightbox__close {
-  color: #f9f9fa;
-  font-size: 36px;
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  cursor: pointer;
-}
-.lightbox__image {
-  max-height: 100%;
+.lightbox__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 900px;
   margin: 0 auto;
 }
-
-@media only screen and (min-width: 768px) {
-  .lightbox {
-    padding: 10%;
-  }
+.lightbox__image {
+  max-width: 90%;
+  max-height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
 .header {
   padding: 64px 32px;
   position: relative;

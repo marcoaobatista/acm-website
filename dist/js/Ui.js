@@ -273,7 +273,7 @@ Ui.prototype.initializeLightbox = function() {
         var lightbox = document.querySelector('.lightbox');
         var lightboxImage = document.querySelector('.lightbox__image');
         lightboxImage.src = image;
-        lightbox.style.display = 'flex';
+        lightbox.style.display = 'block';
     }
 
     for (var i=0; i < pastEventImages.length; i++) {
@@ -285,13 +285,6 @@ Ui.prototype.initializeLightbox = function() {
         var imageUrl = window.getComputedStyle(upcomingEventImages[i]).getPropertyValue('background-image').split('"')[1];
         upcomingEventImages[i].addEventListener('click', imageClickEvent.bind(null, imageUrl));
     }
-
-    // Close button functionality
-    var lightboxClose = document.querySelector('.lightbox__close');
-    lightboxClose.addEventListener('click', function() {
-        var lightbox = document.querySelector('.lightbox');
-        lightbox.style.display = 'none';
-    });
 
     document.querySelector('.lightbox').addEventListener('click', function() {
         var lightbox = document.querySelector('.lightbox');
