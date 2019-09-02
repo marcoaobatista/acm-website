@@ -97,9 +97,7 @@ Ui.prototype.constructPastEventHtml = function(event) {
     var image = document.createElement('div');
     image.className = 'pastEvent__image';
     image.alt = event.imageDescription;
-    image.style.background = 'url(' + event.image + ')';
-    image.style.backgroundRepeat = 'no-repeat';
-    image.style.backgroundSize = 'cover';
+    image.style.backgroundImage = 'url(' + event.image + ')';
 
     var eventHtml = document.createElement('div');
     eventHtml.className = 'pastEvent glide__slide';
@@ -291,6 +289,11 @@ Ui.prototype.initializeLightbox = function() {
     // Close button functionality
     var lightboxClose = document.querySelector('.lightbox__close');
     lightboxClose.addEventListener('click', function() {
+        var lightbox = document.querySelector('.lightbox');
+        lightbox.style.display = 'none';
+    });
+
+    document.querySelector('.lightbox').addEventListener('click', function() {
         var lightbox = document.querySelector('.lightbox');
         lightbox.style.display = 'none';
     });
