@@ -64,6 +64,14 @@ var rawEvents = [
         description: 'Learn more about MSU organizations such as ACM, Women in Computing (WIC), SpartanHackers, and Spartahack.',
         image: 'https://i.imgur.com/TpIKVPW.jpg',
         imageDescription: 'The Hive at MSU'
+    },
+    {
+        title: 'ACM Elections',
+        date: '2019-09-25T18:00:00',
+        location: '1260 Anthony Hall',
+        description: 'It\'s that time of the year to fill ACM board positions, and whether you\'re interested in joining the board or just want to be a part of the voting process, feel free to join us on September 25th. Current positions that need to be filled: Co-President, Co-President, Event Coordinator, and Marketing.',
+        image: '',
+        imageDescription: 'ACM Elections'
     }
 ];
 
