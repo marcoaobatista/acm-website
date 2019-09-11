@@ -86,12 +86,12 @@
     }
     
     &__desc {
-        font-size: 16px;
         color: $grey-200;
-        line-height: 22px;
         margin-bottom: 16px;
         display: none;
         max-width: 600px;
+        font-size: 18px;
+        line-height: 30px;
     }
     
     &__image {

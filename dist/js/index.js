@@ -69,7 +69,7 @@ var rawEvents = [
         title: 'ACM Elections',
         date: '2019-09-25T18:00:00',
         location: '1260 Anthony Hall',
-        description: 'It\'s that time of the year to fill ACM board positions, and whether you\'re interested in joining the board or just want to be a part of the voting process, feel free to join us on September 25th.<br><br>Current positions that need to be filled: <br>Co-President <br>Co-President <br>Event Coordinator <br>Marketing',
+        description: 'It\'s that time of the year to fill ACM board positions, and whether you\'re interested in joining the board or just want to be a part of the voting process, feel free to join us on September 25th.<br><br>Current positions that need to be filled: <br>Co-President <br>Co-President <br>Event Manager <br>Marketing <br>Treasurer <br>Webmaster <br>Secretary',
         image: 'https://i.imgur.com/R7hIzHi.jpg',
         imageDescription: 'ACM Elections'
     }
