@@ -4,8 +4,8 @@ var rawEvents = [
     {
         title: 'Microsoft Tech Talk',
         date: '2019-09-17T18:00:00',
-        location: '1345 Engineering Building',
-        description: '',
+        location: '1225 Engineering Building',
+        description: 'Principal Engineer of Microsoft’s “AI for Earth” group, Jennifer Marsman is coming to MSU to talk about AI for Earth. Here is an abstract:<br><br>The AI for Earth program applies machine learning and data science to hard challenges in agriculture, water, climate, and biodiversity.  In this talk, we will discuss how the AI for Earth team, Microsoft Research, and AI for Earth grant recipients are using machine learning to enable precision agriculture, to predict outbreaks of disease, to detect poachers in real time, and to classify animals for conservation.  Finally, we will briefly provide details on the AI for Earth grant program to obtain resources for everyone to work on these challenges.',
         image: 'https://i.imgur.com/jwHTQ7S.jpg',
         imageDescription: ''
     },
@@ -69,16 +69,11 @@ var rawEvents = [
         title: 'ACM Elections',
         date: '2019-09-25T18:00:00',
         location: '1260 Anthony Hall',
-        description: 'It\'s that time of the year to fill ACM board positions, and whether you\'re interested in joining the board or just want to be a part of the voting process, feel free to join us on September 25th. Current positions that need to be filled: Co-President, Co-President, Event Coordinator, and Marketing.',
-        image: '',
+        description: 'It\'s that time of the year to fill ACM board positions, and whether you\'re interested in joining the board or just want to be a part of the voting process, feel free to join us on September 25th.<br><br>Current positions that need to be filled: <br>Co-President <br>Co-President <br>Event Coordinator <br>Marketing',
+        image: 'https://i.imgur.com/R7hIzHi.jpg',
         imageDescription: 'ACM Elections'
     }
 ];
-
-rawEvents.sort(function(event1, event2) {
-    if (event1.date > event2.date) return -1;
-    if (event1.date < event2.date) return 1;
-});
 
 var rawBoard = [
     {
@@ -129,6 +124,11 @@ var i = 0;
 for (var i=0; i < rawEvents.length; i++)
     events.push(new AcmEvent(rawEvents[i]));
 
+events.sort(function(event1, event2) {
+    if (event1.past && (event1.date > event2.date)) return -1;
+    if (event1.past && (event1.date < event2.date)) return 1;
+});
+
 for (var i=0; i < events.length; i++)
     ui.addEvent(events[i]);
 
@@ -140,4 +140,4 @@ ui.constructTyped('.header__who');
 // Initialize the slider only AFTER the events are added to the UI
 ui.constructSlider('.glide');
 
-ui.initializeLightbox();
+// ui.initializeLightbox();

@@ -28,7 +28,7 @@
 
 
 .pastEvent {
-    background: linear-gradient($grey-600, $grey-700);
+    background: $grey-600;
     border-radius: 12px;
     // box-shadow: 0 10px 29px hsla(0, 0%, 0%, .15), 0 3px 6px hsla(0, 0%, 0%, .10);
     margin: 32px 0;
@@ -37,6 +37,25 @@
     margin-top: 0;
     margin-bottom: 0;
     color: $grey-100;
+
+    &__close {
+        padding-bottom: 36px;
+        display: block;
+        text-align: right;
+
+        & i {
+            font-size: 30px;
+            
+            cursor: pointer;
+        }
+    }
+
+    &__image-full {
+        display: block;
+        max-height: 500px;
+        max-width: 100%;
+        margin-bottom: 12px;
+    }
 
     &__head {
         font-family: 'Montserrat', sans-serif;
@@ -66,6 +85,8 @@
         color: $grey-200;
         line-height: 22px;
         margin-bottom: 16px;
+        display: none;
+        max-width: 600px;
     }
     
     &__image {
@@ -73,10 +94,25 @@
         margin-bottom: 16px;
         border-radius: 12px;
         height: 200px;
-        cursor: pointer;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    &__button {
+        display: block;
+        font-size: 18px;
+        padding: 0px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        color: $accent-100;
+        
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 800;
+        font-family: 'Montserrat', sans-serif;
     }
 }
 

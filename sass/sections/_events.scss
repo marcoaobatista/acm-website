@@ -48,6 +48,25 @@
         margin-bottom: 0;
     }
 
+    &__close {
+        padding-bottom: 36px;
+        display: block;
+        text-align: right;
+
+        & i {
+            font-size: 30px;
+            
+            cursor: pointer;
+        }
+    }
+
+    &__image-full {
+        display: block;
+        max-height: 500px;
+        max-width: 100%;
+        margin-bottom: 12px;
+    }
+
     &__head {
         font-family: 'Montserrat', sans-serif;
         letter-spacing: 1px;
@@ -83,6 +102,8 @@
         font-size: 16px;
         line-height: 22px;
         color: $grey-700;
+        display: none;
+        max-width: 600px;
     }
 
     &__image {
@@ -94,8 +115,22 @@
         background-repeat: no-repeat;
         background-position: center center;
         min-height: 200px;
+    }
+
+    &__button {
+        display: block;
+        font-size: 18px;
+        padding: 0px;
+        border-radius: 10px;
+        border: none;
         cursor: pointer;
+        background: transparent;
+        color: $grey-800;
         
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 800;
+        font-family: 'Montserrat', sans-serif;
     }
 }
 

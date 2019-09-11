@@ -188,6 +188,21 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 .event:last-child {
   margin-bottom: 0;
 }
+.event__close {
+  padding-bottom: 36px;
+  display: block;
+  text-align: right;
+}
+.event__close i {
+  font-size: 30px;
+  cursor: pointer;
+}
+.event__image-full {
+  display: block;
+  max-height: 500px;
+  max-width: 100%;
+  margin-bottom: 12px;
+}
 .event__head {
   font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
@@ -218,6 +233,8 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   font-size: 16px;
   line-height: 22px;
   color: #2e2e38;
+  display: none;
+  max-width: 600px;
 }
 .event__image {
   width: 100%;
@@ -228,7 +245,20 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   background-repeat: no-repeat;
   background-position: center center;
   min-height: 200px;
+}
+.event__button {
+  display: block;
+  font-size: 18px;
+  padding: 0px;
+  border-radius: 10px;
+  border: none;
   cursor: pointer;
+  background: transparent;
+  color: #17171c;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
 }
 
 @media only screen and (min-width: 768px) {
@@ -354,13 +384,28 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 }
 
 .pastEvent {
-  background: linear-gradient(#454554, #2e2e38);
+  background: #454554;
   border-radius: 12px;
   margin: 32px 0;
   padding: 24px;
   margin-top: 0;
   margin-bottom: 0;
   color: #f9f9fa;
+}
+.pastEvent__close {
+  padding-bottom: 36px;
+  display: block;
+  text-align: right;
+}
+.pastEvent__close i {
+  font-size: 30px;
+  cursor: pointer;
+}
+.pastEvent__image-full {
+  display: block;
+  max-height: 500px;
+  max-width: 100%;
+  margin-bottom: 12px;
 }
 .pastEvent__head {
   font-family: "Montserrat", sans-serif;
@@ -387,16 +432,31 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   color: #e3e3e8;
   line-height: 22px;
   margin-bottom: 16px;
+  display: none;
+  max-width: 600px;
 }
 .pastEvent__image {
   width: 100%;
   margin-bottom: 16px;
   border-radius: 12px;
   height: 200px;
-  cursor: pointer;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.pastEvent__button {
+  display: block;
+  font-size: 18px;
+  padding: 0px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: #f5fffe;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+  font-family: "Montserrat", sans-serif;
 }
 
 .glide__arrow {

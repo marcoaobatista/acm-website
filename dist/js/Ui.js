@@ -42,6 +42,14 @@ Ui.prototype.addMember = function(member) {
 @param  {AcmEvent}          event
 @return {HTMLDivElement}    HTML that can be appended to the page */
 Ui.prototype.constructUpcomingEventHtml = function(event) {
+    var close = document.createElement('div');
+    close.className = 'event__close';
+
+    var closeIcon = document.createElement('i');
+    closeIcon.className = 'fas fa-times';
+
+    close.appendChild(closeIcon);
+    
     var title = document.createElement('h1');
     title.innerHTML = event.title;
     title.className = 'event__head';
@@ -65,6 +73,10 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
     image.style.backgroundRepeat = 'no-repeat';
     image.style.backgroundSize = 'cover';
 
+    var infoButton = document.createElement('button');
+    infoButton.className = 'event__button';
+    infoButton.innerHTML = 'More info';
+
     var eventHtml = document.createElement('div');
     eventHtml.className = 'event';
 
@@ -73,7 +85,64 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
     eventHtml.appendChild(date);
     eventHtml.appendChild(location);    
     eventHtml.appendChild(description);
+    eventHtml.appendChild(infoButton);
     
+    var eventsWrapper = document.querySelector('.events__wrapper');
+    infoButton.addEventListener('click', function() {
+        var newNode = eventHtml.cloneNode(true);
+        
+        var close = document.createElement('div');
+        close.className = 'event__close';
+        var closeIcon = document.createElement('i');
+        closeIcon.className = 'fas fa-times';
+        close.appendChild(closeIcon);
+        newNode.insertBefore(close, newNode.firstChild);
+
+        var imageFull = document.createElement('img');
+        imageFull.className = 'event__image-full';
+        imageFull.alt = event.imageDescription;
+        imageFull.src = event.image;
+        newNode.insertBefore(imageFull, newNode.children[1]);
+
+        var description = newNode.children[6];
+        var button = newNode.children[0];
+        var image = newNode.children[2];
+        var infoButton = newNode.children[7];
+
+        image.style.display = 'none';
+        infoButton.style.display = 'none';
+
+        newNode.style.position = 'fixed';
+        newNode.style.borderRadius = '0px';
+        newNode.style.margin = '0';
+        newNode.style.overflow = 'scroll';
+        document.body.style.overflow = 'hidden';
+
+        eventsWrapper.appendChild(newNode);
+
+        eventHtml.style.visibility = 'hidden';
+
+        setTimeout(function() {
+            button.style.display = 'block';
+            newNode.style.width = '100vw';
+            newNode.style.height = '100vh';
+            newNode.style.top = 0;
+            newNode.style.left = 0;
+            
+            newNode.style.paddingTop = '36px';
+            
+            newNode.style.zIndex = '1000000';
+            description.style.display = 'block';
+            description.style.opacity = '1';
+
+        }, 10);
+
+        button.addEventListener('click', function() {
+            eventsWrapper.removeChild(eventsWrapper.lastChild);
+            eventHtml.style.visibility = 'visible';
+            document.body.style.overflow = 'scroll';
+        });
+    });
 
     return eventHtml;
 }
@@ -99,14 +168,74 @@ Ui.prototype.constructPastEventHtml = function(event) {
     image.alt = event.imageDescription;
     image.style.backgroundImage = 'url(' + event.image + ')';
 
+    var infoButton = document.createElement('button');
+    infoButton.className = 'pastEvent__button';
+    infoButton.innerHTML = 'More info';
+
     var eventHtml = document.createElement('div');
     eventHtml.className = 'pastEvent glide__slide';
 
-    eventHtml.appendChild(date);
     eventHtml.appendChild(image);
     eventHtml.appendChild(title);
-    
+    eventHtml.appendChild(date);
     eventHtml.appendChild(description);
+    eventHtml.appendChild(infoButton);
+
+    var eventsWrapper = document.querySelector('.past');
+    infoButton.addEventListener('click', function() {
+        var newNode = eventHtml.cloneNode(true);
+        
+        var close = document.createElement('div');
+        close.className = 'pastEvent__close';
+        var closeIcon = document.createElement('i');
+        closeIcon.className = 'fas fa-times';
+        close.appendChild(closeIcon);
+        newNode.insertBefore(close, newNode.firstChild);
+
+        var imageFull = document.createElement('img');
+        imageFull.className = 'pastEvent__image-full';
+        imageFull.alt = event.imageDescription;
+        imageFull.src = event.image;
+        newNode.insertBefore(imageFull, newNode.children[1]);
+
+        var description = newNode.children[5];
+        var closeButton = newNode.children[0];
+        var image = newNode.children[2];
+        var infoButton = newNode.children[6];
+
+        infoButton.style.display = 'none';
+        image.style.display = 'none';
+
+        newNode.style.overflow = 'scroll';
+        newNode.style.position = 'fixed';
+        newNode.style.top = 0;
+        newNode.style.left = 0;
+        newNode.style.borderRadius = '0px';
+        newNode.style.margin = '0';
+        document.body.style.overflow = 'hidden';
+
+        eventsWrapper.appendChild(newNode);
+
+        eventHtml.style.visibility = 'hidden';
+
+        closeButton.style.display = 'block';
+        newNode.style.width = '100vw';
+        newNode.style.height = '100vh';
+        newNode.style.top = 0;
+        newNode.style.left = 0;
+        
+        newNode.style.paddingTop = '36px';
+        
+        newNode.style.zIndex = '1000000';
+        description.style.display = 'block';
+        description.style.opacity = '1';
+
+        closeButton.addEventListener('click', function() {
+            eventsWrapper.removeChild(eventsWrapper.lastChild);
+            eventHtml.style.visibility = 'visible';
+            document.body.style.overflow = 'initial';
+        });
+    });
 
     return eventHtml;
 }
@@ -263,31 +392,4 @@ Ui.prototype.constructTyped = function(element) {
     }
     
     new Typed(element, typedOptions);
-}
-
-Ui.prototype.initializeLightbox = function() {
-    var pastEventImages = document.getElementsByClassName('pastEvent__image');
-    var upcomingEventImages = document.getElementsByClassName('event__image');
-
-    var imageClickEvent = function(image) {
-        var lightbox = document.querySelector('.lightbox');
-        var lightboxImage = document.querySelector('.lightbox__image');
-        lightboxImage.src = image;
-        lightbox.style.display = 'block';
-    }
-
-    for (var i=0; i < pastEventImages.length; i++) {
-        var imageUrl = window.getComputedStyle(pastEventImages[i]).getPropertyValue('background-image').split('"')[1];
-        pastEventImages[i].addEventListener('click', imageClickEvent.bind(null, imageUrl));
-    }
-
-    for (var i=0; i < upcomingEventImages.length; i++) {
-        var imageUrl = window.getComputedStyle(upcomingEventImages[i]).getPropertyValue('background-image').split('"')[1];
-        upcomingEventImages[i].addEventListener('click', imageClickEvent.bind(null, imageUrl));
-    }
-
-    document.querySelector('.lightbox').addEventListener('click', function() {
-        var lightbox = document.querySelector('.lightbox');
-        lightbox.style.display = 'none';
-    });
 }
