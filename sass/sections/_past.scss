@@ -38,6 +38,11 @@
     margin-bottom: 0;
     color: $grey-100;
 
+    &__wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
     &__close {
         padding-bottom: 36px;
         display: block;
@@ -54,7 +59,7 @@
         display: block;
         max-height: 500px;
         max-width: 100%;
-        margin-bottom: 12px;
+        margin: 0 auto 12px auto;
     }
 
     &__head {
@@ -101,14 +106,14 @@
 
     &__button {
         display: block;
-        font-size: 18px;
+        font-size: 14px;
         padding: 0px;
         border-radius: 10px;
         border: none;
         cursor: pointer;
-        background: transparent;
+        background: linear-gradient(135deg, #20cf6c 0%,#009991 100%);
         color: $accent-100;
-        
+        padding: 8px;
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 800;

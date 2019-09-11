@@ -188,6 +188,10 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 .event:last-child {
   margin-bottom: 0;
 }
+.event__wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
 .event__close {
   padding-bottom: 36px;
   display: block;
@@ -202,6 +206,7 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   max-height: 500px;
   max-width: 100%;
   margin-bottom: 12px;
+  margin: 0 auto 12px auto;
 }
 .event__head {
   font-family: "Montserrat", sans-serif;
@@ -230,11 +235,12 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   text-align: center;
 }
 .event__desc {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 22px;
-  color: #2e2e38;
+  color: #454554;
   display: none;
   max-width: 600px;
+  line-height: 30px;
 }
 .event__image {
   width: 100%;
@@ -248,13 +254,14 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 }
 .event__button {
   display: block;
-  font-size: 18px;
+  font-size: 14px;
   padding: 0px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  background: transparent;
-  color: #17171c;
+  background: linear-gradient(135deg, #20cf6c 0%, #009991 100%);
+  color: #f5fffe;
+  padding: 8px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 800;
@@ -392,6 +399,10 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   margin-bottom: 0;
   color: #f9f9fa;
 }
+.pastEvent__wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
 .pastEvent__close {
   padding-bottom: 36px;
   display: block;
@@ -405,7 +416,7 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   display: block;
   max-height: 500px;
   max-width: 100%;
-  margin-bottom: 12px;
+  margin: 0 auto 12px auto;
 }
 .pastEvent__head {
   font-family: "Montserrat", sans-serif;
@@ -446,13 +457,14 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 }
 .pastEvent__button {
   display: block;
-  font-size: 18px;
+  font-size: 14px;
   padding: 0px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  background: transparent;
+  background: linear-gradient(135deg, #20cf6c 0%, #009991 100%);
   color: #f5fffe;
+  padding: 8px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 800;
