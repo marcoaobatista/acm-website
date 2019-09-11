@@ -115,7 +115,8 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
         newNode.style.position = 'fixed';
         newNode.style.borderRadius = '0px';
         newNode.style.margin = '0';
-        newNode.style.overflow = 'scroll';
+        newNode.style.overflowY = 'scroll';
+        newNode.style.overflowX = 'hidden';
         document.body.style.overflow = 'hidden';
 
         eventsWrapper.appendChild(newNode);
@@ -206,7 +207,8 @@ Ui.prototype.constructPastEventHtml = function(event) {
         infoButton.style.display = 'none';
         image.style.display = 'none';
 
-        newNode.style.overflow = 'scroll';
+        newNode.style.overflowY = 'scroll';
+        newNode.style.overflowX = 'hidden';
         newNode.style.position = 'fixed';
         newNode.style.top = 0;
         newNode.style.left = 0;
