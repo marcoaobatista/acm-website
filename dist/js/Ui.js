@@ -217,8 +217,8 @@ Ui.prototype.constructPastEventHtml = function(event) {
         infoButton.style.display = 'none';
         image.style.display = 'none';
 
-        newNode.style.overflowY = 'scroll';
-        newNode.style.overflowX = 'hidden';
+        newNode.style.overflowY = 'auto';
+        newNode.style.overflowX = 'auto';
         newNode.style.position = 'fixed';
         newNode.style.top = 0;
         newNode.style.left = 0;
@@ -245,7 +245,7 @@ Ui.prototype.constructPastEventHtml = function(event) {
         closeButton.addEventListener('click', function() {
             eventsWrapper.removeChild(eventsWrapper.lastChild);
             eventHtml.style.visibility = 'visible';
-            document.body.style.overflowY = 'scroll';
+            document.body.style.overflowY = 'auto';
         });
     });
 
