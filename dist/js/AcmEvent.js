@@ -18,5 +18,10 @@ function AcmEvent(event) {
     this.description = event.description;
     this.image = event.image;
     this.imageDescription = event.imageDescription;
-    this.past = (this.date < today);
+    
+
+    var dayAhead = new Date(this.date.getTime());
+    dayAhead.setDate(dayAhead.getDate() + 1);
+
+    this.past = (dayAhead < today);
 }
