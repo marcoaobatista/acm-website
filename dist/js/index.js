@@ -72,6 +72,30 @@ var rawEvents = [
         description: 'It\'s that time of the year to fill ACM board positions, and whether you\'re interested in joining the board or just want to be a part of the voting process, feel free to join us on September 25th.<br><br>Current positions that need to be filled: <br>Co-President <br>Co-President <br>Event Manager <br>Marketing <br>Treasurer <br>Webmaster <br>Secretary',
         image: 'https://i.imgur.com/R7hIzHi.jpg',
         imageDescription: 'ACM Elections'
+    },
+    {
+        title: 'Panda Express Fundraiser',
+        date: '2019-10-01T12:00:00',
+        location: 'International Center',
+        description: 'Do you like Panda Express? Want to support ACM? Stop by the International Center food court and grab a flyer from us; when you order something from Panda Express with the flyer, 20% goes towards ACM. Flyers will be handed out from 12-5pm.',
+        image: 'https://i.imgur.com/MqJ4Xqz.jpg',
+        imageDescription: 'Panda Express Fundraiser'
+    },
+    {
+        title: 'Atomic Object: A Day in the Life of an Atomic Developer',
+        date: '2019-10-15T18:00:00',
+        location: '1345 Engineering Building',
+        description: 'What\'s it like to work at a small custom software consultancy? Join me to learn about our favorite tools, workplace, culture, and team process. We\'ll discuss what makes a consultancy an especially great place to start a career.',
+        image: 'https://i.imgur.com/aDjK8gG.jpg',
+        imageDescription: 'Panda Express Fundraiser'
+    },
+    {
+        title: 'Atomic Object: Git for Everyday Development',
+        date: '2019-10-22T18:00:00',
+        location: '1345 Engineering Building',
+        description: 'Git is one of the most common software development tools in the industry. It’s used by developers every day, but it often isn’t taught in college. This hands-on workshop will give you the foundational skills necessary to start using Git in your classwork and projects. Join us to “git” ready for internships and beyond!',
+        image: 'https://i.imgur.com/aDjK8gG.jpg',
+        imageDescription: 'Panda Express Fundraiser'
     }
 ];
 
