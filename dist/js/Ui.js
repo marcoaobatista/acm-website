@@ -55,7 +55,7 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
     title.className = 'event__head';
 
     var date = document.createElement('p');
-    date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.date, false);
+    date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.dateString, false);
     date.className = 'event__date';
 
     var location = document.createElement('p');
@@ -162,7 +162,7 @@ Ui.prototype.constructPastEventHtml = function(event) {
     title.className = 'pastEvent__head';
 
     var date = document.createElement('p');
-    date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.date, true);
+    date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.dateString, true);
     date.className = 'pastEvent__date';
 
     var description = document.createElement('p');
@@ -357,36 +357,36 @@ Ui.prototype.formatDate = function(d, isPast) {
         'January', 'February', 'March', 'April', 'May', 'June', 'July', 
         'August', 'September', 'October', 'November', 'December'
     ];
+
+    console.log(d);
+
+    var date = d.split('/')[1];
+    var month = d.split('/')[0];
+    var year = d.split('/')[2].split(',')[0];
+    var hours = d.split('/')[2].split(' ')[1].split(':')[0];
+    var minutes = d.split('/')[2].split(' ')[1].split(':')[1];
+    var meridiem = d.split('/')[2].split(' ')[2];
+
+    console.log(meridiem);
     
     var dateSuffix = 'th';
-    if (((d.getDate() % 10) === 1) && (d.getDate() !== 11)) {
+    if (((date % 10) === 1) && (date !== 11)) {
         dateSuffix = 'st';
-    } else if (((d.getDate() % 10) === 2) && (d.getDate() !== 12)) {
+    } else if (((date % 10) === 2) && (date !== 12)) {
         dateSuffix = 'nd';
     }
 
-    var meridiem = 'AM';
-    var meridiemHours = d.getHours();
-    if (d.getHours() >= 12) {
-        meridiem = 'PM';
-        if (d.getHours() !== 12)
-            meridiemHours -= 12;
-    }
-    if (d.getHours() === 0)
-        meridiemHours = 12;
-
-
-    var minutesString = String(d.getMinutes());
+    var minutesString = String(minutes);
     if (minutesString.length <= 1)
         minutesString = '0' + minutesString;
 
 
-    var dateString = months[d.getMonth()] + ' ' + d.getDate() + dateSuffix + 
-                     ', ' + d.getFullYear();
+    var dateString = months[month-1] + ' ' + date + dateSuffix + 
+                     ', ' + year;
     
     if (!isPast)
         dateString += ' at ' + 
-        meridiemHours + ':' + minutesString + ' ' + meridiem;
+        hours + ':' + minutesString + ' ' + meridiem;
 
     return dateString;
 }
