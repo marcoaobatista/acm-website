@@ -370,8 +370,6 @@ Ui.prototype.formatDate = function(d, isPast) {
     var year = d.year();
     var hours = d.hour();
     var minutes = d.minute();
-
-    console.log(hours);
     
     var dateSuffix = 'th';
     if (((date % 10) === 1) && (date !== 11)) {
