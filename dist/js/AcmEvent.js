@@ -15,6 +15,10 @@ function AcmEvent(event) {
     this.title = event.title;
     this.date = new Date(event.date);
     this.dateString = this.date.toLocaleString('en-US', {timeZone: 'America/New_York'});
+    this.moment = moment(event.date).tz('America/New_York');
+
+    console.log(this.moment);
+
     this.location = event.location;
     this.description = event.description;
     this.image = event.image;

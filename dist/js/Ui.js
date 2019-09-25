@@ -55,7 +55,7 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
     title.className = 'event__head';
 
     var date = document.createElement('p');
-    date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.dateString, false);
+    date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.moment, false);
     date.className = 'event__date';
 
     var location = document.createElement('p');
@@ -162,7 +162,7 @@ Ui.prototype.constructPastEventHtml = function(event) {
     title.className = 'pastEvent__head';
 
     var date = document.createElement('p');
-    date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.dateString, true);
+    date.innerHTML = '<i class="far fa-calendar-alt"></i>' + this.formatDate(event.moment, true);
     date.className = 'pastEvent__date';
 
     var description = document.createElement('p');
@@ -358,16 +358,20 @@ Ui.prototype.formatDate = function(d, isPast) {
         'August', 'September', 'October', 'November', 'December'
     ];
 
-    console.log(d);
+    // var date = d.split('/')[1];
+    // var month = d.split('/')[0];
+    // var year = d.split('/')[2].split(',')[0];
+    // var hours = d.split('/')[2].split(' ')[1].split(':')[0];
+    // var minutes = d.split('/')[2].split(' ')[1].split(':')[1];
+    // var meridiem = d.split('/')[2].split(' ')[2];
 
-    var date = d.split('/')[1];
-    var month = d.split('/')[0];
-    var year = d.split('/')[2].split(',')[0];
-    var hours = d.split('/')[2].split(' ')[1].split(':')[0];
-    var minutes = d.split('/')[2].split(' ')[1].split(':')[1];
-    var meridiem = d.split('/')[2].split(' ')[2];
+    var date = d.date();
+    var month = d.month();
+    var year = d.year();
+    var hours = d.hour();
+    var minutes = d.minute();
 
-    console.log(meridiem);
+    console.log(hours);
     
     var dateSuffix = 'th';
     if (((date % 10) === 1) && (date !== 11)) {
@@ -376,17 +380,27 @@ Ui.prototype.formatDate = function(d, isPast) {
         dateSuffix = 'nd';
     }
 
+    var meridiem = 'AM';
+    var meridiemHours = hours;
+    if (hours >= 12) {
+        meridiem = 'PM';
+        if (hours !== 12)
+            meridiemHours -= 12;
+    }
+    if (hours === 0)
+        meridiemHours = 12;
+
     var minutesString = String(minutes);
     if (minutesString.length <= 1)
         minutesString = '0' + minutesString;
 
 
-    var dateString = months[month-1] + ' ' + date + dateSuffix + 
+    var dateString = months[month] + ' ' + date + dateSuffix + 
                      ', ' + year;
     
     if (!isPast)
         dateString += ' at ' + 
-        hours + ':' + minutesString + ' ' + meridiem;
+        meridiemHours + ':' + minutesString + ' ' + meridiem;
 
     return dateString;
 }
