@@ -381,7 +381,7 @@ Ui.prototype.formatDate = function(d, isPast) {
         minutesString = '0' + minutesString;
 
 
-    var dateString = months[month-1] + ' ' + date + dateSuffix + 
+    var dateString = months[month] + ' ' + date + dateSuffix + 
                      ', ' + year;
     
     if (!isPast)
