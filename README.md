@@ -37,8 +37,9 @@ changes.
 * Know how web servers work
 * Netlify serverless functions: https://www.netlify.com/docs/functions/
 * MongoDB and connecting to a database (https://www.youtube.com/watch?v=-56x56UppqQ)
-* Familiarity with creating HTTP CRUD operations on database elements
-* Familiarity with JSON Web Token (JWT) authentication process
+* Familiarity with creating HTTP CRUD (Create, Read, Update, Delete) operations on database elements
+* Familiarity with Postman for testing HTTP routes (https://www.getpostman.com/)
+* Familiarity with JSON Web Token (JWT) authentication process (https://jwt.io/)
 
-### DevOps
+#### DevOps
 * Knowing your way around Netlify and how to deploy
