@@ -1,13 +1,18 @@
-function Dashboard() {
+function Dashboard(functionName) {
     this.items = [];
     this.fields = {};
     this.rows = [];
     this.editModal;
     this.addModal;
     this.table;
+    this.functionName = functionName;
+    this.constructDash = constructDash;
+    this.constructHeader = constructHeader;
+    this.constructModal = constructModal;
+    this.constructRow = constructRow;
 }
 
-Dashboard.prototype.construct = function(el, noAdd) {
+var constructDash = function(el, noAdd) {
     var wrapper = document.getElementById(el);
 
     this.editModal = this.constructModal();
@@ -84,12 +89,12 @@ Dashboard.prototype.construct = function(el, noAdd) {
                 self.addModal.children[0].appendChild(input);
             }
 
-            var updateButton = document.createElement('button');
-            updateButton.className = 'modal__button';
-            updateButton.textContent = 'Add new';
+            var addNewButton = document.createElement('button');
+            addNewButton.className = 'modal__button';
+            addNewButton.textContent = 'Add new';
 
             (function() {
-                updateButton.addEventListener('click', function() {
+                addNewButton.addEventListener('click', function() {
                     var field;
                     for (var i=0; i < self.addModal.children[0].children.length; i++) {
                         var child = self.addModal.children[0].children[i];
@@ -106,14 +111,16 @@ Dashboard.prototype.construct = function(el, noAdd) {
                         }
                     }
                     var req = new XMLHttpRequest();
-                    // req.open('POST', 'http://localhost:9000/.netlify/functions/event');
-                    req.open('POST', '/.netlify/functions/event');
+                    // req.open('POST', 'http://localhost:9000/.netlify/functions/' + self.functionName);
+                    req.open('POST', '/.netlify/functions/' + self.functionName);
                     req.setRequestHeader('Content-Type', 'application/json');
                     req.setRequestHeader('x-auth-token', window.localStorage.getItem('token'));
                     req.responseType = 'json';
-                    req.onload = function() {
+                    req.onload = function() {                        
                         var res = req.response;
                         
+                        console.log(self.functionName);
+
                         if (res.errors) {
                             console.log(res.errors);
                         } else {
@@ -141,7 +148,7 @@ Dashboard.prototype.construct = function(el, noAdd) {
                 });
             })();
 
-            self.addModal.children[0].appendChild(updateButton);
+            self.addModal.children[0].appendChild(addNewButton);
 
             self.addModal.style.display = 'block';
         });
@@ -149,13 +156,16 @@ Dashboard.prototype.construct = function(el, noAdd) {
         
         wrapper.appendChild(button);
 
-        this.table.appendChild(row);
+        if (row !== undefined) {
+            this.table.appendChild(row);
+        }
+        
     }
 
     wrapper.appendChild(this.table);
 }
 
-Dashboard.prototype.constructModal = function() {
+var constructModal = function() {
     var modal = document.createElement('div');
     modal.className = 'modal';
     var modalWrapper = document.createElement('div');
@@ -164,7 +174,7 @@ Dashboard.prototype.constructModal = function() {
     return modal;
 }
 
-Dashboard.prototype.constructHeader = function() {
+var constructHeader = function() {
     var tableHeader = document.createElement('tr');
     tableHeader.className = 'dash__header';
 
@@ -190,7 +200,7 @@ Dashboard.prototype.constructHeader = function() {
     return tableHeader;
 }
 
-Dashboard.prototype.constructRow = function(item) {
+var constructRow = function(item) {
     var fieldKeys = Object.keys(this.fields);
     var fieldValues = Object.values(this.fields);
 
@@ -296,8 +306,8 @@ Dashboard.prototype.constructRow = function(item) {
                 console.log(item);
                 
                 var req = new XMLHttpRequest();
-                // req.open('POST', 'http://localhost:9000/.netlify/functions/event');
-                req.open('POST', '/.netlify/functions/event');
+                // req.open('POST', 'http://localhost:9000/.netlify/functions/' + self.functionName);
+                req.open('POST', '/.netlify/functions/' + self.functionName);
                 req.setRequestHeader('x-auth-token', window.localStorage.getItem('token'));
                 req.setRequestHeader('Content-Type', 'application/json');
                 req.responseType = 'json';
@@ -359,8 +369,8 @@ Dashboard.prototype.constructRow = function(item) {
             }
 
             var req = new XMLHttpRequest();
-            // req.open('DELETE', 'http://localhost:9000/.netlify/functions/event');
-            req.open('DELETE', '/.netlify/functions/event');
+            // req.open('DELETE', 'http://localhost:9000/.netlify/functions/' + self.functionName);
+            req.open('DELETE', '/.netlify/functions/' + self.functionName);
             req.setRequestHeader('Content-Type', 'application/json');
             req.setRequestHeader('x-auth-token', localStorage.getItem('token'));
             req.responseType = 'json';

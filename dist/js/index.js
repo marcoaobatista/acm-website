@@ -99,48 +99,48 @@ var ui = new Ui();
 //     }
 // ];
 
-var rawBoard = [
-    {
-        name: 'Justin Newman',
-        title: 'Co-President',
-        image: 'https://dummyimage.com/90x90/000/fff'
-    },
-    {
-        name: 'Rohit Sen',
-        title: 'Co-President',
-        image: 'https://dummyimage.com/90x90/000/fff'
-    },
-    {
-        name: 'Kingston Tran',
-        title: 'Secretary',
-        image: 'https://dummyimage.com/90x90/000/fff'
-    },
-    {
-        name: 'Andrew Kim',
-        title: 'Treasurer',
-        image: 'https://dummyimage.com/90x90/000/fff'
-    },
-    {
-        name: 'Caleb Kish',
-        title: 'Co-Webmaster',
-        image: 'https://dummyimage.com/90x90/000/fff'
-    },
-    {
-        name: 'Nahom Ghebredngl',
-        title: 'Co-Webmaster',
-        image: 'https://dummyimage.com/90x90/000/fff'
-    },
-    {
-        name: 'Kevin Le',
-        title: 'Social Media',
-        image: 'https://dummyimage.com/90x90/000/fff'
-    },
-    {
-        name: 'Sebnem Onsay',
-        title: 'Faculty Advisor',
-        image: 'https://dummyimage.com/90x90/000/fff'
-    }
-]
+// var rawBoard = [
+//     {
+//         name: 'Justin Newman',
+//         title: 'Co-President',
+//         image: 'https://dummyimage.com/90x90/000/fff'
+//     },
+//     {
+//         name: 'Rohit Sen',
+//         title: 'Co-President',
+//         image: 'https://dummyimage.com/90x90/000/fff'
+//     },
+//     {
+//         name: 'Kingston Tran',
+//         title: 'Secretary',
+//         image: 'https://dummyimage.com/90x90/000/fff'
+//     },
+//     {
+//         name: 'Andrew Kim',
+//         title: 'Treasurer',
+//         image: 'https://dummyimage.com/90x90/000/fff'
+//     },
+//     {
+//         name: 'Caleb Kish',
+//         title: 'Co-Webmaster',
+//         image: 'https://dummyimage.com/90x90/000/fff'
+//     },
+//     {
+//         name: 'Nahom Ghebredngl',
+//         title: 'Co-Webmaster',
+//         image: 'https://dummyimage.com/90x90/000/fff'
+//     },
+//     {
+//         name: 'Kevin Le',
+//         title: 'Social Media',
+//         image: 'https://dummyimage.com/90x90/000/fff'
+//     },
+//     {
+//         name: 'Sebnem Onsay',
+//         title: 'Faculty Advisor',
+//         image: 'https://dummyimage.com/90x90/000/fff'
+//     }
+// ];
 
 var req = new XMLHttpRequest();
 req.open('GET', '/.netlify/functions/event');
@@ -186,8 +186,25 @@ req.send();
 // for (var i=0; i < events.length; i++)
 //     ui.addEvent(events[i]);
 
-for (var i=0; i < rawBoard.length; i++)
-    ui.addMember(rawBoard[i]);
+
+var req2 = new XMLHttpRequest();
+req2.open('GET', '/.netlify/functions/board');
+req2.responseType = 'json';
+req2.onload = function() {
+    var res = req2.response;
+    
+    console.log(res);
+
+    if (res.errors) {
+        console.log(res.errors);
+    } else {
+        var rawBoard = res;
+
+        for (var i=0; i < rawBoard.length; i++)
+            ui.addMember(rawBoard[i]);
+    }
+}
+req2.send();
 
 ui.constructTyped('.header__who');
 
