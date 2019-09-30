@@ -148,11 +148,9 @@ Dashboard.prototype.construct = function(el, noAdd) {
         
         
         wrapper.appendChild(button);
+
+        this.table.appendChild(row);
     }
-
-    
-
-    this.table.appendChild(row);
 
     wrapper.appendChild(this.table);
 }
