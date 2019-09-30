@@ -3,7 +3,7 @@ var ui = new Ui();
 
 // Send request to server for events
 var eventReq = new XMLHttpRequest();
-eventReq.open('GET', 'http://localhost:9000/.netlify/functions/event');
+eventReq.open('GET', '/.netlify/functions/event');
 eventReq.responseType = 'json';
 eventReq.onload = function() {
     var res = eventReq.response;
@@ -34,7 +34,7 @@ eventReq.send();
 
 // Send request to server for board members
 var boardReq = new XMLHttpRequest();
-boardReq.open('GET', 'http://localhost:9000/.netlify/functions/board');
+boardReq.open('GET', '/.netlify/functions/board');
 boardReq.responseType = 'json';
 boardReq.onload = function() {
     var res = boardReq.response;
