@@ -12,8 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "@glidejs/glide": "^3.3.0",
-    "netlify-lambda": "^1.5.1",
-    "sass": "^1.22.9",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.3.2",
     "typed.js": "^2.0.10"
+  },
+  "devDependencies": {
+    "dotenv": "^8.1.0",
+    "netlify-lambda": "^1.6.3",
+    "sass": "^1.22.12"
   }
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>netlify-nodejs-lambda</title>
+    <link rel="stylesheet" href="dashboard/index.css">
+</head>
+<body>
+    
+    <h2>Register</h2>    
+    <div class="register">
+        <label class="label" for="emailRegister">Email</label>
+        <input class="input" id="emailRegister" type="email">
+        <p class="error" id="emailRegisterError"></p>
+
+        <label class="label" for="passwordRegister">Password</label>
+        <input class="input" id="passwordRegister" type="password">
+        <p class="error" id="passwordRegisterError"></p>
+
+        <label class="label" for="secretRegister">Secret</label>
+        <input class="input" id="secretRegister" type="password">
+        <p class="error" id="secretRegisterError"></p>
+
+        <button class="button" id="submitRegister">Register</button>
+
+        <p class="result" id="registerResult"></p>
+    </div>
+
+    <h2>Login</h2>
+    <div class="login">
+        <label class="label" for="emailLogin">Email</label>
+        <input class="input" id="emailLogin" type="email">
+        <p class="error" id="emailLoginError"></p>
+
+        <label class="label" for="passwordLogin">Password</label>
+        <input class="input" id="passwordLogin" type="password">
+        <p class="error" id="passwordLoginError"></p>
+
+        <button class="button" id="submitLogin">Login</button>
+
+        <p class="result" id="loginResult"></p>
+    </div>
+
+    <button class="button" id="logout">Logout</button>
+    <p class="result" id="logoutResult"></p>
+
+    <button class="button" id="deleteAccount" style="display: none;">Delete your account</button>
+    <p class="result" id="deleteResult"></p>
+
+    <h1>Events Dashboard</h1>
+    <div id="wrapper"></div>
+
+    <script src="dashboard/actions/deleteUser.js" type="application/javascript"></script>
+    <script src="dashboard/actions/register.js" type="application/javascript"></script>
+    <script src="dashboard/actions/login.js" type="application/javascript"></script>
+    <script src="dashboard/actions/logout.js" type="application/javascript"></script>
+    <script src="dashboard/Dashboard.js" type="application/javascript"></script>
+    <script src="dashboard/index.js" type="application/javascript"></script>
+</body>
+</html>

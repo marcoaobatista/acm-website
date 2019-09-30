@@ -1,0 +1,47 @@
+.modal {
+    background: rgba(255,255,255,0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.modal__label {
+    display: block;
+    
+}
+
+.modal__input {
+    display: block;
+}
+
+.modal__textarea {
+    display: block;
+}
+
+.modal__wrapper {
+    padding: 40px;
+}
+
+.login {
+    margin-bottom: 50px;
+}
+
+.input {
+    display: block;
+}
+
+.label {
+    display: block;
+}
+
+.button {
+    display: block;
+}
+
+.error {
+    color: red;
+    margin: 0;
+}
