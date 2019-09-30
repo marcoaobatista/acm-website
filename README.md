@@ -10,6 +10,10 @@ Have a look at ./testing.html as a reference for the color palette.
 `npm run sass`: Monitors the sass folder for any changes, and outputs 
 ./dist/css/index.css.
 
+`npm run lambda-serve`: Builds the serverless functions in `functions/` into `compiled/`, and runs a local server (usually on port 9000) which you can use to test the compiled functions locally.
+
+`npm run lambda-buid`: Builds the serverless functions in `functions/` into `compiled/`. This command is run by Netlify when deploying the site, which will generate the compiled functions on the remote server.
+
 ### Possible issues you might run into
 
 **Images not loading in:** If images are not being loaded in, this might be due 
@@ -18,3 +22,23 @@ to you running the website on a local server. In order to view the images
 localhost, or possibly vise versa (your port may vary). I believe this is due 
 to imgur blocking local requests by default, so keep that in mind when making 
 changes.
+
+### Things you should know
+
+#### Frontend
+* General HTML/CSS: https://internetingishard.com/
+* CSS BEM architecture: http://getbem.com/
+* Sass: https://sass-lang.com/
+* JavaScript for browsers (<ES6)
+
+#### Backend
+* JavaScript for Node.js (ES6+)
+* Familiarity with Node.js environment and base modules (https://www.youtube.com/watch?v=fBNz5xF-Kx4)
+* Know how web servers work
+* Netlify serverless functions: https://www.netlify.com/docs/functions/
+* MongoDB and connecting to a database (https://www.youtube.com/watch?v=-56x56UppqQ)
+* Familiarity with creating HTTP CRUD operations on database elements
+* Familiarity with JSON Web Token (JWT) authentication process
+
+### DevOps
+* Knowing your way around Netlify and how to deploy
