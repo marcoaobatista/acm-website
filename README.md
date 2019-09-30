@@ -23,6 +23,8 @@ localhost, or possibly vise versa (your port may vary). I believe this is due
 to imgur blocking local requests by default, so keep that in mind when making 
 changes.
 
+**CORS-related error:** If you are running `lambda-serve` and viewing `dist/index.html` locally, you might run into an error that disallows you from sending a request to the local web server. This is simply a security measure placed by the browser, and a way to get around it is by using Chrome with security features disabled (https://www.thepolyglotdeveloper.com/2014/08/bypass-cors-errors-testing-apis-locally/)
+
 ### Things you should know
 
 #### Frontend
@@ -37,6 +39,7 @@ changes.
 * Know how web servers work
 * Netlify serverless functions: https://www.netlify.com/docs/functions/
 * MongoDB and connecting to a database (https://www.youtube.com/watch?v=-56x56UppqQ)
+* Environment variables and dotenv (https://github.com/motdotla/dotenv)
 * Familiarity with creating HTTP CRUD (Create, Read, Update, Delete) operations on database elements
 * Familiarity with Postman for testing HTTP routes (https://www.getpostman.com/)
 * Familiarity with JSON Web Token (JWT) authentication process (https://jwt.io/)

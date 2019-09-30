@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb';
 
 import isJsonStr from './utility/isJsonStr';
 import resJson from './utility/resJson';
-import validate from './validation/validate';
+import validate from './utility/validate';
 import authorize from './utility/authorize';
 import len from './utility/objectLength';
 

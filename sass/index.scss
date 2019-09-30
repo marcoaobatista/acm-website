@@ -12,6 +12,14 @@
 }
 
 
+.body {
+    overflow: auto;
+    
+    &--modal {
+        overflow: hidden;
+    }
+}
+
 input, textarea, button {
     outline: none;
 

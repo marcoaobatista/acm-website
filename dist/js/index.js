@@ -1,12 +1,12 @@
 var ui = new Ui();
 
+
+// Send request to server for events
 var eventReq = new XMLHttpRequest();
-eventReq.open('GET', '/.netlify/functions/event');
+eventReq.open('GET', 'http://localhost:9000/.netlify/functions/event');
 eventReq.responseType = 'json';
 eventReq.onload = function() {
     var res = eventReq.response;
-    
-    console.log(res);
 
     if (res.errors) {
         console.log(res.errors);
@@ -31,8 +31,10 @@ eventReq.onload = function() {
 }
 eventReq.send();
 
+
+// Send request to server for board members
 var boardReq = new XMLHttpRequest();
-boardReq.open('GET', '/.netlify/functions/board');
+boardReq.open('GET', 'http://localhost:9000/.netlify/functions/board');
 boardReq.responseType = 'json';
 boardReq.onload = function() {
     var res = boardReq.response;
@@ -49,4 +51,3 @@ boardReq.onload = function() {
 boardReq.send();
 
 ui.constructTyped('.header__who');
-

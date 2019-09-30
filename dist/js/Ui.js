@@ -70,8 +70,6 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
     image.className = 'event__image';
     image.alt = event.imageDescription;
     image.style.backgroundImage = 'url(' + event.image + ')';
-    image.style.backgroundRepeat = 'no-repeat';
-    image.style.backgroundSize = 'cover';
 
     var infoButton = document.createElement('button');
     infoButton.className = 'event__button';
@@ -94,60 +92,43 @@ Ui.prototype.constructUpcomingEventHtml = function(event) {
     
     var eventsWrapper = document.querySelector('.events__wrapper');
     infoButton.addEventListener('click', function() {
+        // Copies the event card element for us to manipulate
         var newNode = eventHtml.cloneNode(true);
 
-        var close = document.createElement('div');
-        close.className = 'event__close';
+        // Create and append close button
+        var closeButton = document.createElement('div');
+        closeButton.className = 'event__close';
+        closeButton.addEventListener('click', function() {
+            eventsWrapper.removeChild(eventsWrapper.lastChild);
+            document.body.className = 'body';
+        });
         var closeIcon = document.createElement('i');
         closeIcon.className = 'fas fa-times';
-        close.appendChild(closeIcon);
-        newNode.firstChild.insertBefore(close, newNode.firstChild.firstChild);
+        closeButton.appendChild(closeIcon);
+        
+        newNode.firstChild.insertBefore(closeButton, newNode.firstChild.firstChild);
 
+        // Create and append full image (not the same as the div image in card)
         var imageFull = document.createElement('img');
         imageFull.className = 'event__image-full';
         imageFull.alt = event.imageDescription;
         imageFull.src = event.image;
         newNode.firstChild.insertBefore(imageFull, newNode.firstChild.children[1]);
 
+        // Define children
         var description = newNode.firstChild.children[6];
-        var button = newNode.firstChild.children[0];
+        var closeButton = newNode.firstChild.children[0];
         var image = newNode.firstChild.children[2];
         var infoButton = newNode.firstChild.children[7];
 
-        image.style.display = 'none';
-        infoButton.style.display = 'none';
-
-        newNode.style.position = 'fixed';
-        newNode.style.borderRadius = '0px';
-        newNode.style.margin = '0';
-        newNode.style.overflowY = 'scroll';
-        newNode.style.overflowX = 'hidden';
-        document.body.style.overflow = 'hidden';
+        // Apply modifier classes
+        newNode.className += ' event--modal';
+        image.className += ' event__image--modal';
+        infoButton.className = ' event__button--modal';
+        description.className += ' event__desc--modal';
+        document.body.className += ' body--modal';
 
         eventsWrapper.appendChild(newNode);
-
-        eventHtml.style.visibility = 'hidden';
-
-        setTimeout(function() {
-            button.style.display = 'block';
-            newNode.style.width = '100vw';
-            newNode.style.height = '100vh';
-            newNode.style.top = 0;
-            newNode.style.left = 0;
-            
-            newNode.style.paddingTop = '36px';
-            
-            newNode.style.zIndex = '1000000';
-            description.style.display = 'block';
-            description.style.opacity = '1';
-
-        }, 10);
-
-        button.addEventListener('click', function() {
-            eventsWrapper.removeChild(eventsWrapper.lastChild);
-            eventHtml.style.visibility = 'visible';
-            document.body.style.overflowY = 'scroll';
-        });
     });
 
     return eventHtml;
@@ -194,59 +175,45 @@ Ui.prototype.constructPastEventHtml = function(event) {
 
     var eventsWrapper = document.querySelector('.past');
     infoButton.addEventListener('click', function() {
+        // Copies the event card element for us to manipulate
         var newNode = eventHtml.cloneNode(true);
-        
-        var close = document.createElement('div');
-        close.className = 'pastEvent__close';
+
+        // Create and append close button
+        var closeButton = document.createElement('div');
+        closeButton.className = 'pastEvent__close';
+        closeButton.addEventListener('click', function() {
+            document.body.className = 'body';
+            eventsWrapper.removeChild(eventsWrapper.lastChild);
+        });
         var closeIcon = document.createElement('i');
         closeIcon.className = 'fas fa-times';
-        close.appendChild(closeIcon);
-        newNode.firstChild.insertBefore(close, newNode.firstChild.firstChild);
+        closeButton.appendChild(closeIcon);
+        
+        newNode.firstChild.insertBefore(closeButton, newNode.firstChild.firstChild);
 
+        // Create and append full image (not the same as the div image in card)
         var imageFull = document.createElement('img');
         imageFull.className = 'pastEvent__image-full';
         imageFull.alt = event.imageDescription;
         imageFull.src = event.image;
         newNode.firstChild.insertBefore(imageFull, newNode.firstChild.children[1]);
 
+        // Define children
         var description = newNode.firstChild.children[5];
         var closeButton = newNode.firstChild.children[0];
         var image = newNode.firstChild.children[2];
         var infoButton = newNode.firstChild.children[6];
 
-        infoButton.style.display = 'none';
-        image.style.display = 'none';
+        console.log()
 
-        newNode.style.overflowY = 'auto';
-        newNode.style.overflowX = 'auto';
-        newNode.style.position = 'fixed';
-        newNode.style.top = 0;
-        newNode.style.left = 0;
-        newNode.style.borderRadius = '0px';
-        newNode.style.margin = '0';
-        document.body.style.overflowY = 'hidden';
+        // Apply modifier classes
+        newNode.className += ' pastEvent--modal';
+        image.className += ' pastEvent__image--modal';
+        infoButton.className = ' pastEvent__button--modal';
+        description.className += ' pastEvent__desc--modal';
+        document.body.className += ' body--modal';
 
         eventsWrapper.appendChild(newNode);
-
-        eventHtml.style.visibility = 'hidden';
-
-        closeButton.style.display = 'block';
-        newNode.style.width = '100vw';
-        newNode.style.height = '100vh';
-        newNode.style.top = 0;
-        newNode.style.left = 0;
-        
-        newNode.style.paddingTop = '36px';
-        
-        newNode.style.zIndex = '1000000';
-        description.style.display = 'block';
-        description.style.opacity = '1';
-
-        closeButton.addEventListener('click', function() {
-            eventsWrapper.removeChild(eventsWrapper.lastChild);
-            eventHtml.style.visibility = 'visible';
-            document.body.style.overflowY = 'auto';
-        });
     });
 
     return eventHtml;
@@ -357,13 +324,6 @@ Ui.prototype.formatDate = function(d, isPast) {
         'January', 'February', 'March', 'April', 'May', 'June', 'July', 
         'August', 'September', 'October', 'November', 'December'
     ];
-
-    // var date = d.split('/')[1];
-    // var month = d.split('/')[0];
-    // var year = d.split('/')[2].split(',')[0];
-    // var hours = d.split('/')[2].split(' ')[1].split(':')[0];
-    // var minutes = d.split('/')[2].split(' ')[1].split(':')[1];
-    // var meridiem = d.split('/')[2].split(' ')[2];
 
     var date = d.date();
     var month = d.month();

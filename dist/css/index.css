@@ -10,6 +10,13 @@
   font-family: "Lato", sans-serif;
 }
 
+.body {
+  overflow: auto;
+}
+.body--modal {
+  overflow: hidden;
+}
+
 input, textarea, button {
   outline: none;
 }
@@ -188,6 +195,18 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
 .event:last-child {
   margin-bottom: 0;
 }
+.event--modal {
+  position: fixed;
+  border-radius: 0;
+  margin: 0 !important;
+  overFlow: auto;
+  width: 100vw !important;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding-top: 36px;
+  z-index: 1000000;
+}
 .event__wrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -243,6 +262,9 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   line-height: 30px;
   margin-bottom: 16px;
 }
+.event__desc--modal {
+  display: block;
+}
 .event__image {
   width: 100%;
   margin-bottom: 16px;
@@ -252,6 +274,9 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   background-repeat: no-repeat;
   background-position: center center;
   min-height: 200px;
+}
+.event__image--modal {
+  display: none;
 }
 .event__button {
   display: block;
@@ -267,6 +292,9 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   letter-spacing: 1px;
   font-weight: 800;
   font-family: "Montserrat", sans-serif;
+}
+.event__button--modal {
+  display: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -400,6 +428,18 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   margin-bottom: 0;
   color: #f9f9fa;
 }
+.pastEvent--modal {
+  position: fixed;
+  border-radius: 0;
+  margin: 0 !important;
+  overFlow: auto;
+  width: 100vw !important;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  padding-top: 36px;
+  z-index: 1000000;
+}
 .pastEvent__wrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -447,6 +487,9 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   font-size: 18px;
   line-height: 30px;
 }
+.pastEvent__desc--modal {
+  display: block;
+}
 .pastEvent__image {
   width: 100%;
   margin-bottom: 16px;
@@ -455,6 +498,9 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.pastEvent__image--modal {
+  display: none;
 }
 .pastEvent__button {
   display: block;
@@ -470,6 +516,9 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   letter-spacing: 1px;
   font-weight: 800;
   font-family: "Montserrat", sans-serif;
+}
+.pastEvent__button--modal {
+  display: none;
 }
 
 .glide__arrow {

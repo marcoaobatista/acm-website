@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken';
 import isJsonStr from './utility/isJsonStr';
 import resJson from './utility/resJson';
 import len from './utility/objectLength';
-import validate from './validation/validate';
+import validate from './utility/validate';
 import authorize from './utility/authorize';
 
 export default async(event, model, collection) => {
