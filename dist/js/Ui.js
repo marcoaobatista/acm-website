@@ -204,8 +204,6 @@ Ui.prototype.constructPastEventHtml = function(event) {
         var image = newNode.firstChild.children[2];
         var infoButton = newNode.firstChild.children[6];
 
-        console.log()
-
         // Apply modifier classes
         newNode.className += ' pastEvent--modal';
         image.className += ' pastEvent__image--modal';
@@ -302,15 +300,6 @@ Ui.prototype.constructSlider = function(elementSelector) {
         if (pastEventsAmount-1 === this.slider.index) {
             sliderRightArrow.style.display = 'none';
         }
-
-        // var pastSection = document.querySelector('.past');
-
-        // console.log(this.pastEvents[this.slider.index].image);
-
-        // pastSection.style.background = 'radial-gradient(hsla(240, 10%, 30%, 1), hsla(240, 10%, 30%, 0.8) ), url(' + 
-        //                                this.pastEvents[this.slider.index].image + ')';
-        // pastSection.style.backgroundSize = 'cover';
-        // pastSection.style.backgroundRepeat = 'no-repeat';
     }
 
     this.slider.on('run', slideChanged.bind(this));
