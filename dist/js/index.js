@@ -148,6 +148,8 @@ req.responseType = 'json';
 req.onload = function() {
     var res = req.response;
     
+    console.log(res);
+
     if (res.errors) {
         console.log(res.errors);
     } else {
