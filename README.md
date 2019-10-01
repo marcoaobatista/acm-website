@@ -53,3 +53,4 @@ changes.
 
 ## Testing
 [![BrowserStack Image](https://i.imgur.com/pR72Nni.png)](http://github.com)
+Proudly using BrowserStack to perform cross-browser testing. I think it's important to make websites [progressively enhanced](https://adamsilver.io/articles/progressively-enhanced-javascript/), and BrowserStack is the perfect solution.
