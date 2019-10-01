@@ -46,3 +46,6 @@ changes.
 
 #### DevOps
 * Knowing your way around Netlify and how to deploy
+
+## Testing
+[![BrowserStack Image](https://i.imgur.com/pR72Nni.png)](http://github.com)
