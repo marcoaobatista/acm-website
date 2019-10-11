@@ -465,6 +465,9 @@ input:focus, input:active, input:focus-within, textarea:focus, textarea:active, 
   font-size: 24px;
   line-height: 30px;
   margin-bottom: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .pastEvent__date {
   line-height: 14px;
