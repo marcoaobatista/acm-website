@@ -60,26 +60,12 @@ fetch('/.netlify/functions/event')
     });
 
 
-// Send request to server for board members
-var boardReq = new XMLHttpRequest();
-// boardReq.open('GET', 'http://localhost:9000/.netlify/functions/board');
-boardReq.open('GET', '/.netlify/functions/board');
-boardReq.responseType = 'json';
-boardReq.onload = function() {
-    var res = boardReq.response;
-
-    console.log('RES:', res);
-
-    if (res.errors) {
-        console.log(res.errors);
-        return;
-    }
-    
-    var rawBoard = res;
-
-    for (var i=0; i < rawBoard.length; i++)
-        ui.addMember(rawBoard[i]);
-}
-boardReq.send();
+fetch('/.netlify/functions/board')
+// fetch('http://localhost:9000/.netlify/functions/board')
+    .then(res => res.json())
+    .then(data => {
+        for (var i=0; i < data.length; i++)
+            ui.addMember(data[i]);
+    });
 
 ui.constructTyped('.header__who');

@@ -6,8 +6,8 @@ var loginResult = document.getElementById('loginResult');
 loginSubmit.addEventListener('click', function() {
     var req = new XMLHttpRequest();
     
-    req.open('POST', 'http://localhost:9000/.netlify/functions/user/login');
-    // req.open('POST', '/.netlify/functions/user/login');
+    // req.open('POST', 'http://localhost:9000/.netlify/functions/user/login');
+    req.open('POST', '/.netlify/functions/user/login');
     
     req.responseType = 'json';
 

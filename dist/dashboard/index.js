@@ -1,11 +1,6 @@
 var eventDash = new Dashboard('event');
-var req = new XMLHttpRequest();
 
-// req.open('GET', 'http://localhost:9000/.netlify/functions/event');
-req.open('GET', '/.netlify/functions/event');
-req.responseType = 'json';
-
-var fields = {
+var eventFields = {
     _id: {
         name: 'ID',
         readOnly: true,
@@ -32,26 +27,24 @@ var fields = {
     }
 };
 
-eventDash.fields = fields;
-req.onload = function() {
-    var res = req.response;
+eventDash.fields = eventFields;
 
-    for (var i=0; i < res.length; i++) {
-        eventDash.items.push(res[i]);
-    }
-
-    eventDash.constructDash('eventsWrapper');
-}
-
-req.send();
+fetch('/.netlify/functions/event')
+// fetch('http://localhost:9000/.netlify/functions/event')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        
+        for (var i=0; i < data.length; i++) {
+            eventDash.items.push(data[i]);
+        }
+    
+        eventDash.constructDash('eventsWrapper');
+    })
+    .catch(err => console.log(err));
 
 var boardDash = new Dashboard('board');
-var req2 = new XMLHttpRequest();
-// req2.open('GET', 'http://localhost:9000/.netlify/functions/board');
-req.open('GET', '/.netlify/functions/board');
-req2.responseType = 'json';
-
-var fields = {
+var boardFields = {
     _id: {
         name: 'ID',
         readOnly: true,
@@ -68,15 +61,16 @@ var fields = {
     }
 };
 
-boardDash.fields = fields;
-req2.onload = function() {
-    var res = req2.response;
+boardDash.fields = boardFields;
 
-    for (var i=0; i < res.length; i++) {
-        boardDash.items.push(res[i]);
-    }
-
-    boardDash.constructDash('boardWrapper');
-}
-
-req2.send();
+fetch('/.netlify/functions/board')
+// fetch('http://localhost:9000/.netlify/functions/board')
+    .then(res => res.json())
+    .then(data => {
+        for (var i=0; i < data.length; i++) {
+            boardDash.items.push(data[i]);
+        }
+    
+        boardDash.constructDash('boardWrapper');
+    })
+    .catch(err => console.log(err));
