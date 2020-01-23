@@ -175,6 +175,9 @@ Ui.prototype.constructPastEventHtml = function(event) {
 
     var eventsWrapper = document.querySelector('.past');
     infoButton.addEventListener('click', function() {
+	// Show the second line
+	title.className = 'pastEvent__head_show';
+
         // Copies the event card element for us to manipulate
         var newNode = eventHtml.cloneNode(true);
 
