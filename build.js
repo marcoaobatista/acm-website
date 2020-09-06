@@ -167,6 +167,8 @@ function formatDate(d)
         'August', 'September', 'October', 'November', 'December'
     ];
 
+    return d.toLocaleString('en-US', {timeZone: 'America/New_York' });
+
     const date = d.getDate();
     const month = d.getMonth();
     const year = d.getFullYear();
