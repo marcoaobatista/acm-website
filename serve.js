@@ -44,13 +44,13 @@ http.createServer(async (req, res) => {
                 {
                     // replace placeholder with hot-reload script
                     // it waits for a message from the websocket server then refreshes the page
-                    extString = extString.replace(/<!-- @HOTRELOAD -->/g, `
+                    extString = extString.replace('</body>', `
                         <script type="application/javascript">
                             const ws = new WebSocket('ws://localhost:8001');
                             ws.onmessage = function(msg) {
                                 location.reload();
                             }
-                        </script>
+                        </script></body>
                         `);
                 }
                 
