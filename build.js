@@ -94,7 +94,7 @@ async function createEventPage(event)
     );
 
     // writes to `/build/events/<event.htmlPath>.html`
-    fsp.writeFile(newEventPagePath, newEventPage)
+    fsp.appendFile(newEventPagePath, newEventPage)
         .catch(err => {
             console.error(new Error(err));
             process.exit(1);
