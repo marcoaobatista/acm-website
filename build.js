@@ -7,7 +7,7 @@ const process = require('process');
 const { copyDir } = require('./util');
 
 
-(async () =>
+async function build()
 {
     // copy `src` to `build`
     // `build` will be removed if it already exists
@@ -50,7 +50,7 @@ const { copyDir } = require('./util');
             console.error(err);
             process.exit(1);
         });
-})();
+}
 
 
 // Creates event page in `build/events/`.
@@ -188,3 +188,9 @@ function formatDate(d)
 
     return dateString;
 }
+
+build()
+    .catch(err => console.log(err));
+
+
+exports.build = build;

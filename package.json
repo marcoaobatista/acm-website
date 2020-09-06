@@ -4,9 +4,14 @@
   "description": "",
   "main": "build.js",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "serve": "node serve.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "chokidar": "^3.4.2",
+    "ws": "^7.3.1"
+  }
 }
