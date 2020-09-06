@@ -15,7 +15,13 @@ const contentTypeHeaders = {
     '.html': 'text/html',
     '.svg': 'image/svg+xml',
     '.jpg': 'image/jpeg',
-    '.png': 'image/png'
+    '.png': 'image/png',
+    '.ttf': 'application/x-font-ttf',
+    '.otf': 'application/x-font-opentype',
+    '.woff': 'application/font-woff',
+    '.woff2': 'application/font-woff2',
+    'eot': 'application/vnd.ms-fontobject',
+    'sfnt': 'application/font-sfnt'
 }
 
 // create a local http server
@@ -32,7 +38,16 @@ http.createServer(async (req, res) => {
                 res.writeHead(200, { 'Content-Type': contentTypeHeaders[ext] });
                 
                 // some files are blobs and aren't represented as characers
-                const enc = (ext == '.jpg' || ext == '.png') ? null : 'utf-8';
+                const enc = (
+                    ext == '.jpg' ||
+                    ext == '.png' ||
+                    ext == '.ttf' ||
+                    ext == '.oft' ||
+                    ext == '.woff' ||
+                    ext == '.woff2' ||
+                    ext == '.eot' ||
+                    ext == '.sfnt'
+                ) ? null : 'utf-8';
 
                 let extString = await fsp.readFile(`./build${urlPath}`, { encoding: enc })
                     .catch(err => {
