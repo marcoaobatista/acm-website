@@ -14,13 +14,11 @@ const { copyDir } = require('./util');
     await copyDir(path.join(process.cwd(), 'src'), path.join(process.cwd(), 'build'))
         .catch(err => new Error(err));
 
-    const contents = await fsp.readdir(path.join(process.cwd(), 'build'))
+    await fsp.mkdir(path.join(process.cwd(), 'build/events'))
         .catch(err => {
             console.error(new Error(err));
             process.exit(1);
         });
-
-    console.log(contents);
 
     // read json text and convert to an object
     const eventContent = require('./content/events.json');
