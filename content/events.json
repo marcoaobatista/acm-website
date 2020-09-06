@@ -1,0 +1,22 @@
+{
+    "events": [
+        {
+            "title": "Microsoft Tech Talk",
+            "date": "2019-09-17T18:00:00-04:00",
+            "location": "1225 Engineering Building",
+            "htmlPath": "content/events/2019/2019-09-17-microsoft.html"
+        },
+        {
+            "title": "Hacking Workshop by @amirootyet",
+            "date": "2018-03-20T18:30:00-04:00",
+            "location": "1279 Anthony Hall",
+            "htmlPath": "content/events/2018/2018-03-20-amiroot.html"
+        },
+        {
+            "title": "Another event",
+            "date": "2020-09-16T18:00:00-04:00",
+            "location": "Online",
+            "htmlPath": "content/events/2020/2020-09-16-microsoft.html"
+        }
+    ]
+}

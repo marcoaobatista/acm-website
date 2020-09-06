@@ -1,25 +1,12 @@
 {
-  "name": "acm-website",
+  "name": "acm-site-new",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build.js",
   "scripts": {
-    "sass": "sass --watch sass/index.scss dist/css/index.css",
-    "lambda-serve": "netlify-lambda serve functions",
-    "lambda-build": "netlify-lambda build functions"
+    "build": "node build.js"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@glidejs/glide": "^3.3.0",
-    "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^8.5.1",
-    "mongodb": "^3.3.2",
-    "typed.js": "^2.0.10"
-  },
-  "devDependencies": {
-    "dotenv": "^8.1.0",
-    "netlify-lambda": "^1.6.3",
-    "sass": "^1.22.12"
-  }
+  "dependencies": {}
 }
