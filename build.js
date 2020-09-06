@@ -23,7 +23,7 @@ const { copyDir } = require('./util');
     for (let event of eventContent.events)
     {
         // create event HTML file
-        createEventPage(event)
+        await createEventPage(event)
             .catch(err => console.error(err));
         
         const eventDate = new Date(event.date);
