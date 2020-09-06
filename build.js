@@ -11,7 +11,7 @@ const { copyDir } = require('./util');
 {
     // copy `src` to `build`
     // `build` will be removed if it already exists
-    await copyDir('src', 'build')
+    await copyDir(path.join(process.cwd(), 'src'), path.join(process.cwd(), 'build'))
         .catch(err => new Error(err));
 
     // read json text and convert to an object
@@ -89,6 +89,7 @@ async function createEventPage(event)
     newEventPage = newEventPage.replace(/<!-- @EVENT -->/g, newEventHtml);
 
     const newEventPagePath = path.join(
+        process.cwd(),
         'build/events/',
         path.basename(event.htmlPath)
     );
@@ -142,7 +143,7 @@ async function populateEventsMapHtml(eventsMap)
     // replace placeholder
     eventsPage = eventsPage.replace(/<!-- @EVENTS -->/g, eventsMapHtml);
 
-    fsp.writeFile('build/events.html', eventsPage)
+    fsp.writeFile(path.join(process.cwd(), 'build/events.html'), eventsPage)
         .catch(err => {
             console.error(new Error(err));
             process.exit(1);
