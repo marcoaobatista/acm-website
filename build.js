@@ -167,14 +167,15 @@ function formatDate(d)
         'August', 'September', 'October', 'November', 'December'
     ];
 
-    return d.toLocaleString('en-US', {timeZone: 'America/New_York' });
+    d = d.toLocaleString('en-US', {timeZone: 'America/New_York' });
 
-    const date = d.getDate();
-    const month = d.getMonth();
-    const year = d.getFullYear();
-    const hours = d.getHours();
-    const minutes = d.getMinutes();
-    
+    const date = d.split('/')[1];
+    const month = d.split('/')[0] - 1;
+    const year = d.split('/')[2].split(',')[0];
+    const hours = d.split(' ')[1].split(':')[0];
+    const minutes = d.split(' ')[1].split(':')[1];
+    const meridiem = d.split(' ')[2];
+
     let dateSuffix = 'th';
     if (((date % 10) === 1) && (date !== 11)) {
         dateSuffix = 'st';
@@ -182,23 +183,8 @@ function formatDate(d)
         dateSuffix = 'nd';
     }
 
-    let meridiem = 'AM';
-    let meridiemHours = hours;
-    if (hours >= 12) {
-        meridiem = 'PM';
-        if (hours !== 12)
-            meridiemHours -= 12;
-    }
-    if (hours === 0)
-        meridiemHours = 12;
-
-    let minutesString = String(minutes);
-    if (minutesString.length <= 1)
-        minutesString = '0' + minutesString;
-
-
     const dateString = months[month] + ' ' + date + dateSuffix + ', ' + year +
-        ' at ' + meridiemHours + ':' + minutesString + ' ' + meridiem;
+        ' at ' + hours + ':' + minutes + '' + meridiem.toLowerCase() + ' EST';
 
     return dateString;
 }
