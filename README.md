@@ -30,6 +30,7 @@ that you are trying to serve.
 [fontawesome](https://fontawesome.com/). Additional versions of icons may need 
 to be created if you want to change their color. Color can be changed with the 
 `fill` attribute inside the `.svg` file.
+* Fonts are from [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts/lato?subsets=latin)
 
 ## Development process
 There are two npm scripts available to you:
