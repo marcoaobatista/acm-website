@@ -4,33 +4,33 @@ const fs = require('fs');
 const path = require('path');
 const fsp = fs.promises;
 const process = require('process');
-const { copyDir } = require('./util');
+const { copyDir, logErrorAndExit } = require('./util');
 
 
 async function build()
 {
-    // copy `src` to `build`
-    // `build` will be removed if it already exists
-    await copyDir(path.join(process.cwd(), 'src'), path.join(process.cwd(), 'build'))
-        .catch(err => new Error(err));
+    // Copy `src` to `build`.
+    // `build` will be removed if it already exists.
+    await copyDir(
+            path.join(process.cwd(), 'src'), 
+            path.join(process.cwd(), 'build')
+        )
+        .catch(err => logErrorAndExit(new Error(err)));
 
     await fsp.mkdir(path.join(process.cwd(), 'build/events'))
-        .catch(err => {
-            console.error(new Error(err));
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
 
-    // read json text and convert to an object
+    // Read json text and convert to an object.
     const eventContent = require('./content/events.json');
 
-    // will be used to create event page links in `build/events.html`
+    // Will be used to create event page links in `build/events.html`.
     const eventsMap = {};
 
     for (let event of eventContent.events)
     {
-        // create event HTML file
+        // Create event HTML file.
         await createEventPage(event)
-            .catch(err => console.error(err));
+            .catch(err => logErrorAndExit(new Error(err)));
         
         const eventDate = new Date(event.date);
         const eventYear = eventDate.getFullYear();
@@ -38,18 +38,15 @@ async function build()
         if (!eventsMap.hasOwnProperty(eventYear))
             eventsMap[eventYear] = {};
         
-        // will be used to create event page links in `build/events.html`
+        // Will be used to create event page links in `build/events.html`.
         eventsMap[eventYear][
             `${eventDate.getMonth()+1}/${eventDate.getDate()} - ${event.title}`
         ] = path.join('events/', path.basename(event.htmlPath));
     }
 
-    // adds event page links in `build/events.html`
+    // Adds event page links in `build/events.html`.
     await populateEventsMapHtml(eventsMap)
-        .catch(err => {
-            console.error(err);
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
 }
 
 
@@ -62,29 +59,24 @@ async function build()
 //                                  replace placeholder in `eventTemplate`
 async function createEventPage(event)
 {
-    // load event template HTML
-    // contains placeholders that we will replace with event data
+    // Load event template HTML.
+    // Contains placeholders that we will replace with event data.
     const eventTemplate = await fsp.readFile(
             'content/event-template.html',
             { encoding: 'utf-8' }
         )
-        .catch(err => {
-            console.error(new Error(err));
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
 
-    // set to the fresh event template with placeholders
+    // Set to the fresh event template with placeholders.
     let newEventPage = eventTemplate;
     
-    // grab HTML for the `newEventPage` @EVENT placeholder from `event.htmlPath`
+    // Grab HTML for the `newEventPage` @EVENT placeholder from 
+    // `event.htmlPath`.
     const newEventHtml = await fsp.readFile(
             event.htmlPath,
             { encoding: 'utf-8' }
         )
-        .catch(err => {
-            console.error(new Error(err));
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
     
     // used for @DATE placeholder
     const dateFormatted = formatDate(new Date(event.date));
@@ -102,10 +94,7 @@ async function createEventPage(event)
 
     // writes to `/build/events/<event.htmlPath>.html`
     fsp.appendFile(newEventPagePath, newEventPage)
-        .catch(err => {
-            console.error(new Error(err));
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
 }
 
 
@@ -117,12 +106,9 @@ async function populateEventsMapHtml(eventsMap)
             'build/events.html',
             { encoding: 'utf-8' }
         )
-        .catch(err => {
-            console.error(new Error(err));
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
 
-    // order by year (number), descending
+    // Order by year (number), descending.
     const eventsYearsOrderedDesc = Object.getOwnPropertyNames(eventsMap);
     eventsYearsOrderedDesc.sort((a, b) => b-a);
     
@@ -130,7 +116,7 @@ async function populateEventsMapHtml(eventsMap)
     for (let year of eventsYearsOrderedDesc) {
         eventsMapHtml += `<h2 class="events__year">${year}</h2>`;
 
-        // order by event title (string), descending
+        // Order by event title (string), descending.
         const eventsOrderedDesc = Object.getOwnPropertyNames(eventsMap[year]);
         eventsOrderedDesc.sort(function (a, b) {
             if (a > b) return -1;
@@ -138,7 +124,7 @@ async function populateEventsMapHtml(eventsMap)
             return 0;
         });
 
-        // create headings and unordered lists
+        // Create headings and unordered lists.
         eventsMapHtml += '<ul class="events__list">';
         for (let eventTitle of eventsOrderedDesc) {
             eventsMapHtml += `<li><a href="${eventsMap[year][eventTitle]}">${eventTitle}</a></li>`;
@@ -146,14 +132,11 @@ async function populateEventsMapHtml(eventsMap)
         eventsMapHtml += '</ul>';
     }
 
-    // replace placeholder
+    // Replace placeholder.
     eventsPage = eventsPage.replace(/<!-- @EVENTS -->/g, eventsMapHtml);
 
     fsp.writeFile(path.join(process.cwd(), 'build/events.html'), eventsPage)
-        .catch(err => {
-            console.error(new Error(err));
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
 }
 
 
@@ -190,7 +173,7 @@ function formatDate(d)
 }
 
 build()
-    .catch(err => console.log(err));
+    .catch(err => logErrorAndExit(new Error(err)));
 
 
 exports.build = build;

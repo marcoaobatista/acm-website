@@ -12,48 +12,40 @@ const process = require('process');
 // @param {string} target   Path of directory where source files will be copied
 async function copyDir(source, target)
 {
-    // check if `source` exists and grab metadata if so
+    // Check if `source` exists and grab metadata if so.
     const sourceStats = await fsp.stat(source)
-        .catch(err => {
-            console.error(new Error(err));
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
 
-    // check if `source` is a directory
+    // Check if `source` is a directory.
     if (!sourceStats.isDirectory())
-        throw new Error(`Error: ${source} is not a directory`);
-
-    // check if `target` exists and grab metadata if so
+    {
+        logErrorAndExit(new Error(`Error: ${source} is not a directory`));
+    }
+    
+    // Check if `target` exists and grab metadata if so.
     const targetStats = await fsp.stat(target)
         .catch(() => false);
 
     if (targetStats)
     {
-        // check if `target` is a directory
+        // Check if `target` is a directory.
         if (targetStats.isDirectory())
         {
+            // Remove `target` directory.
             await fsp.rmdir(target, { recursive: true })
-                .catch(err => {
-                    console.error(new Error(err));
-                    process.exit(1);
-                });
+                .catch(err => logErrorAndExit(new Error(err)));
         }
     }
     
-    // Make `target` directory
+    // Make `target` directory.
     await fsp.mkdir(target)
-        .catch(err => {
-            console.error(new Error(err));
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
     
-    // Initialize recursive copying from `src` to `target`
+    // Read items in `source`.
     const contents = await fsp.readdir(source)
-        .catch(err => {
-            console.error(new Error(err));
-            process.exit(1);
-        });
+        .catch(err => logErrorAndExit(new Error(err)));
 
+    // Initialize recursive copying from `src` to `target`.
     await copyDirRec(contents, source, target);
 }
 
@@ -71,44 +63,41 @@ async function copyDirRec(contents, source, target)
         itemSourcePath = path.join(source, item);
         itemTargetPath = path.join(target, item);
 
-        // get item metaddata
+        // Get item metadata.
         const itemSourceStats = await fsp.stat(itemSourcePath)
-            .catch(err => {
-                console.error(new Error(err));
-                process.exit(1);
-            });
+            .catch(err => logErrorAndExit(new Error(err)));
         
-        // check if source item is directory
+        // Check if source item is directory.
         if (itemSourceStats.isDirectory())
         {
-            // create matching directory in `itemTargetPath`
+            // Create matching directory in `itemTargetPath`.
             await fsp.mkdir(itemTargetPath)
-                .catch(err => {
-                    console.error(new Error(err));
-                    process.exit(1);
-                });
+                .catch(err => logErrorAndExit(new Error(err)));
             
-            // get contents of directory in `itemSourcePath`
+            // Get contents of directory in `itemSourcePath`.
             const itemContents = await fsp.readdir(itemSourcePath)
-                .catch(err => {
-                    console.error(new Error(err));
-                    process.exit(1);
-                });
+                .catch(err => logErrorAndExit(new Error(err)));
             
-            // proceed to copy items from new source directory
+            // Proceed to copy items from new source directory.
             copyDirRec(itemContents, itemSourcePath, itemTargetPath);
         }
         else
         {
-            // copy file from `itemSourcePath` to `itemTargetPath`
+            // Copy file from `itemSourcePath` to `itemTargetPath`.
             await fsp.copyFile(itemSourcePath, itemTargetPath)
-                .catch(err => {
-                    console.error(new Error(err));
-                    process.exit(1);
-                });
+                .catch(err => logErrorAndExit(new Error(err)));
         }
     }
 }
 
 
+// @param {Error} err   An Error object that was initialized where the code 
+// failed.
+function logErrorAndExit(err) {
+    console.error(err);
+    process.exit(1);
+}
+
+
 exports.copyDir = copyDir;
+exports.logErrorAndExit = logErrorAndExit;

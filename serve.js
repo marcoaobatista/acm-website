@@ -1,3 +1,5 @@
+'use strict';
+
 const url = require('url');
 const fs = require('fs');
 const fsp = fs.promises;
@@ -6,8 +8,8 @@ const http = require('http');
 const process = require('process');
 const WebSocket = require('ws');
 const chokidar = require('chokidar');
-const EventEmitter = require('events');
 const { build } = require('./build');
+
 
 const contentTypeHeaders = {
     '.js': 'application/javascript',
@@ -24,9 +26,9 @@ const contentTypeHeaders = {
     'sfnt': 'application/font-sfnt'
 }
 
-// create a local http server
+// Creates a local http server.
 http.createServer(async (req, res) => {
-    // this is everything after http://localhost:8000
+    // This is everything in the URL after 'http://localhost:8000'.
     let urlPath = url.parse(req.url).pathname;
 
     switch (urlPath) {        
@@ -37,7 +39,7 @@ http.createServer(async (req, res) => {
                 const ext = path.extname(urlPath);
                 res.writeHead(200, { 'Content-Type': contentTypeHeaders[ext] });
                 
-                // some files are blobs and aren't represented as characers
+                // Some files are blobs and aren't represented as characers.
                 const enc = (
                     ext == '.jpg' ||
                     ext == '.png' ||
@@ -57,8 +59,9 @@ http.createServer(async (req, res) => {
                 
                 if (ext == '.html')
                 {
-                    // replace placeholder with hot-reload script
-                    // it waits for a message from the websocket server then refreshes the page
+                    // Add hot-reload script to bottom of <body>.
+                    // It waits for a message from the websocket server then 
+                    // refreshes the page.
                     extString = extString.replace('</body>', `
                         <script type="application/javascript">
                             const ws = new WebSocket('ws://localhost:8001');
@@ -69,7 +72,7 @@ http.createServer(async (req, res) => {
                         `);
                 }
                 
-                // return the response
+                // Return the response.
                 res.end(extString);
             } catch (error) {
                 res.writeHead(404, { 'Content-Type': 'text/plain' })
@@ -80,19 +83,23 @@ http.createServer(async (req, res) => {
     console.log('Server now available at http://localhost:8000');
 });
 
-// creates a WebSocket server that maintains an array of socket connections
+// Creates a WebSocket server that maintains an array of socket connections.
 const wss = new WebSocket.Server({ port: 8001 });
 let sockets = [];
 wss.on('connection', ws => {
     sockets.push(ws);
 
+    // Removes the socket that was just closed.
     ws.on('close', closeCode => {
         sockets = sockets.filter(socket => socket._closeCode != closeCode);
     });
 });
 
-// watch the `src` directory for changes
+// Watch the `src` directory for changes.
 const watcher = chokidar.watch('src', { persistent: true })
+    .add('content'); // Watch the `content` directory for changes.
+
+watcher
     .on('ready', () => console.log('Initial watcher scan complete, ready for changes.'))
     .on('change', async () => {
         await build()
@@ -101,11 +108,9 @@ const watcher = chokidar.watch('src', { persistent: true })
                 process.exit(1);
             });
         
-        // the client hot-reload script will receive this message and refresh the browser
+        // The client hot-reload script will receive this message and 
+        // refresh the browser.
         for (const ws of sockets) {
             ws.send('refresh');
         }
     });
-
-// watch the `content` directory for changes
-watcher.add('content');
