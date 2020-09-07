@@ -5,8 +5,9 @@ git clone git@github.com:acm-msu/acm-website.git
 cd acm-website
 npm install
 ```
-Anytime you wanted to start making changes, run `npm run serve` and go to 
-http://localhost:8000. When changes are made, your browser will refresh.
+Anytime you want to start making changes, run `npm run serve` and go to 
+http://localhost:8000. When changes are made in `src/` or `content/`, your 
+browser will refresh.
 
 ## Things you should know
 * HTML5
@@ -15,7 +16,7 @@ http://localhost:8000. When changes are made, your browser will refresh.
     * ES6+ features
     * Node.js standard modules
 * Netlify
-    * Pretty just know how to log in, view deployment status, and redeploy if 
+    * Pretty much just know how to log in, view deployment status, and redeploy if 
     necessary
 
 ### Things worth mentioning
@@ -30,7 +31,7 @@ that you are trying to serve.
 [fontawesome](https://fontawesome.com/). Additional versions of icons may need 
 to be created if you want to change their color. Color can be changed with the 
 `fill` attribute inside the `.svg` file.
-* Fonts are from [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts/lato?subsets=latin)
+* Fonts are from [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com)
 
 ## Development process
 There are two npm scripts available to you:
