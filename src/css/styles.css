@@ -851,15 +851,19 @@ EVENT
 }
 
 .event__wrapper p {
-    margin-bottom: 12px;
-    line-height: 32px;
+    margin: 12px 0;
 }
 
 .event__wrapper ul {
-    list-style-position: inside;
     padding-left: 24px;
     line-height: 32px;
     margin-bottom: 12px;
+}
+
+.event__wrapper li {
+    line-height: 32px;
+    list-style-position: inside;
+    padding-left: 24px;
 }
 
 .event__wrapper ol {

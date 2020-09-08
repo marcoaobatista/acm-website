@@ -11,6 +11,12 @@
             "date": "2018-03-20T18:30:00-04:00",
             "location": "1279 Anthony Hall",
             "htmlPath": "content/events/2018/2018-03-20-amiroot.html"
+        },
+        {
+            "title": "CSE Mixer",
+            "date": "2020-09-10T19:00:00-04:00",
+            "location": "Online: Zoom",
+            "htmlPath": "content/events/2020/2020-09-10-csemixer.html"
         }
     ],
     "to-be-added": [
