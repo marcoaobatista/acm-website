@@ -21,7 +21,9 @@ async function build()
         .catch(err => logErrorAndExit(new Error(err)));
 
     // Read json text and convert to an object.
-    const eventContent = require('./content/events.json');
+    const eventContent = await fsp.readFile('content/events.json', { encoding: 'utf-8' })
+        .then(data => JSON.parse(data))
+        .catch(err => logErrorAndExit(new Error(err)));
 
     // Will be used to create event page links in `build/events.html`.
     const eventsMap = {};
@@ -35,12 +37,24 @@ async function build()
         const eventDate = new Date(event.date);
         const eventYear = eventDate.getFullYear();
 
+        let eventMonth = eventDate.getMonth() + 1;
+        if (eventMonth.toString().length == 1)
+        {
+            eventMonth = '0' + eventMonth.toString();
+        }
+
+        let eventDay = eventDate.getDate();
+        if (eventDay.toString().length == 1)
+        {
+            eventDay = '0' + eventDay.toString();
+        }
+
         if (!eventsMap.hasOwnProperty(eventYear))
             eventsMap[eventYear] = {};
         
         // Will be used to create event page links in `build/events.html`.
         eventsMap[eventYear][
-            `${eventDate.getMonth()+1}/${eventDate.getDate()} - ${event.title}`
+            `${eventMonth}/${eventDay} - ${event.title}`
         ] = path.join('events/', path.basename(event.htmlPath));
     }
 

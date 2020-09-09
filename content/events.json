@@ -1,6 +1,42 @@
 {
     "events": [
         {
+            "title": "Code Rush: Movie and Pizza Night!",
+            "date": "2019-01-26T20:30:00",
+            "location": "1279 Anthony Hall",
+            "htmlPath": "content/events/2019/2019-01-26-mozilla.html"
+        },
+        {
+            "title": "Experience At Ford with Amanda LaBelle",
+            "date": "2019-02-06T19:00:00",
+            "location": " 1279 Anthony Hall",
+            "htmlPath": "content/events/2019/2019-02-06-ford.html"
+        },
+        {
+            "title": "Intro to Developing with Hyperledger Composing",
+            "date": "2019-02-13T18:30:00",
+            "location": "1260 Anothony Hall",
+            "htmlPath": "content/events/2019/2019-02-13-hyperledger.html"
+        },
+        {
+            "title": "Google: Building Your Technical Career",
+            "date": "2019-03-13T18:00:00",
+            "location": "1145 Engineering Building",
+            "htmlPath": "content/events/2019/2019-03-13-google.html"
+        },
+        {
+            "title": "Atomic Object: A Day in the Life of an Atomic Developer",
+            "date": "2019-10-15T18:00:00",
+            "location": "1345 Engineering Building",
+            "htmlPath": "content/events/2019/2019-10-15-atomic.html"
+        },
+        {
+            "title": "Atomic Object: Git for Everyday Development",
+            "date": "2019-10-22T18:00:00",
+            "location": "1345 Engineering Building",
+            "htmlPath": "content/events/2019/2019-10-22-atomic.html"
+        },
+        {
             "title": "Microsoft Tech Talk",
             "date": "2019-09-17T18:00:00-04:00",
             "location": "1225 Engineering Building",
@@ -15,13 +51,11 @@
         {
             "title": "CSE Mixer",
             "date": "2020-09-10T19:00:00-04:00",
-            "location": "Online: Zoom",
+            "location": "Online",
             "htmlPath": "content/events/2020/2020-09-10-csemixer.html"
-        }
-    ],
-    "to-be-added": [
+        },
         {
-            "title": "Another event",
+            "title": "Working on Real-world Software Projects (Pandemic and Beyond)",
             "date": "2020-09-16T18:00:00-04:00",
             "location": "Online",
             "htmlPath": "content/events/2020/2020-09-16-microsoft.html"

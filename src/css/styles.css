@@ -359,10 +359,12 @@ INFO
     position: relative;
     top: -50px;
     flex: 3;
+    width: 100%;
 }
 
 .info__sig-graphic {
     flex: 2;
+    width: 100%;
 }
 
 .info__chat-graphic {
@@ -370,6 +372,7 @@ INFO
     top: -70px;
     flex: 2;
     padding-top: 70px;
+    width: 100%;
 }
 
 @media only screen and (min-width: 1800px) {
