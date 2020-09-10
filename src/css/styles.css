@@ -454,6 +454,69 @@ INFO
     }
 }
 
+
+/* =============================================================================
+SUBSCRIBE
+============================================================================= */
+.subscribe {
+    background: linear-gradient(135deg, var(--primary-500), var(--accent-500));
+}
+
+.subscribe__wrapper {
+    padding: 32px var(--page-gutter);
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.subscribe__paragraph {
+    color: var(--primary-100);
+    font-size: 24px;
+    font-family: var(--monserrat);
+    font-weight: bold;
+    max-width: 300px;
+    text-align: center;
+    line-height: 32px;
+}
+
+.subscribe__button {
+    background: var(--grey-700);
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 16px;
+    border: none;
+    box-shadow: 0 10px 29px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.subscribe--light {
+    background: var(--primary-200);
+}
+
+.subscribe--light .subscribe__paragraph {
+    color: var(--primary-600);
+}
+
+.subscribe--light .subscribe__button {
+    background: var(--primary-600);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 610px) {
+    .subscribe__wrapper {
+        flex-direction: column;
+    }
+
+    .subscribe__paragraph {
+        margin-bottom: 16px;
+    }
+}
+
+
 /* =============================================================================
 BOARD
 ============================================================================= */

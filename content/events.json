@@ -1,6 +1,12 @@
 {
     "events": [
         {
+            "title": "Hacking Workshop by @amirootyet",
+            "date": "2018-03-20T18:30:00-04:00",
+            "location": "1279 Anthony Hall",
+            "htmlPath": "content/events/2018/2018-03-20-amiroot.html"
+        },
+        {
             "title": "Code Rush: Movie and Pizza Night!",
             "date": "2019-01-26T20:30:00",
             "location": "1279 Anthony Hall",
@@ -37,16 +43,28 @@
             "htmlPath": "content/events/2019/2019-10-22-atomic.html"
         },
         {
-            "title": "Microsoft Tech Talk",
+            "title": "Microsoft: AI for Earth",
             "date": "2019-09-17T18:00:00-04:00",
             "location": "1225 Engineering Building",
             "htmlPath": "content/events/2019/2019-09-17-microsoft.html"
         },
         {
-            "title": "Hacking Workshop by @amirootyet",
-            "date": "2018-03-20T18:30:00-04:00",
-            "location": "1279 Anthony Hall",
-            "htmlPath": "content/events/2018/2018-03-20-amiroot.html"
+            "title": "Quicken Loans: The One Question That Will 10x Your Career",
+            "date": "2020-01-15T18:00:00-04:00",
+            "location": "1345 Engineering Building",
+            "htmlPath": "content/events/2020/2020-01-15-quicken.html"
+        },
+        {
+            "title": "Target: Technology Behind Your Shopping Experience",
+            "date": "2020-02-19T18:00:00-04:00",
+            "location": "1257 Anthony Hall",
+            "htmlPath": "content/events/2020/2020-02-19-target.html"
+        },
+        {
+            "title": "Ford: Clean Code",
+            "date": "2020-03-11T18:00:00-04:00",
+            "location": "Anthony Hall Room 1257",
+            "htmlPath": "content/events/2020/2020-03-11-ford.html"
         },
         {
             "title": "CSE Mixer",
