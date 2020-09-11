@@ -360,11 +360,13 @@ INFO
     top: -50px;
     flex: 3;
     width: 100%;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
 }
 
 .info__sig-graphic {
     flex: 2;
     width: 100%;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
 }
 
 .info__chat-graphic {
@@ -373,6 +375,7 @@ INFO
     flex: 2;
     padding-top: 70px;
     width: 100%;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
 }
 
 @media only screen and (min-width: 1800px) {
