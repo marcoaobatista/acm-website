@@ -225,7 +225,7 @@ nav {
     display: flex;
     align-items: center;
     font-size: 18px;
-    
+
     letter-spacing: 1px;
     font-weight: bold;
     font-family: var(--monserrat);
@@ -263,7 +263,7 @@ nav {
     .nav__link a {
         font-size: 20px;
     }
-    
+
     .hero__title {
         font-size: 24px;
         text-align: center;
@@ -308,7 +308,7 @@ INFO
 .info__section {
     display: flex;
     align-items: center;
-    padding-top: 30px;   
+    padding-top: 30px;
 }
 
 .info__text--left {
@@ -392,7 +392,7 @@ INFO
     .info {
         margin-bottom: 0;
     }
-    
+
     .info__wrapper {
         top: 0;
         padding-bottom: 64px;
@@ -412,7 +412,7 @@ INFO
     }
 }
 
-@media only screen and (max-width: 820px) {    
+@media only screen and (max-width: 820px) {
     .info__section {
         flex-direction: column;
         padding-top: 100px;
@@ -525,7 +525,7 @@ BOARD
 ============================================================================= */
 .board {
     background:
-        linear-gradient(180deg, rgba(0,0,0,0) 0%, var(--grey-200) 100%),
+        linear-gradient(180deg, rgba(255,255,255,0.0) 0%, var(--grey-200) 100%),
         url('../images/lines.svg'),
         var(--grey-200);
 
@@ -642,7 +642,7 @@ BOARD
 @media only screen and (max-width: 820px) {
     .board__current-members {
         grid-template-columns: 1fr 1fr;
-        
+
     }
 }
 
@@ -677,7 +677,7 @@ BOARD
 POSITIONS
 ============================================================================= */
 .positions {
-    background: 
+    background:
         linear-gradient(0deg, rgba(0,0,0,0) 0%,
         var(--grey-600) 100%), url('../images/lines.svg'),
         var(--grey-600);
@@ -780,7 +780,7 @@ POSITIONS
         border-bottom: 1px solid var(--grey-600);
     }
 
-    
+
 
     .position:first-of-type {
         border-top-left-radius: 12px;
@@ -816,6 +816,7 @@ FOOTER
     bottom: 0;
     left: 0;
     right: 0;
+	height: 62px;
 }
 
 .footer__social {
@@ -887,11 +888,11 @@ EVENTS
     .events {
         padding: 32px 0;
     }
-    
+
     .events__year {
         font-size: 30px;
     }
-    
+
     .events__list {
         font-size: 18px;
     }
