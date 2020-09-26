@@ -4,7 +4,7 @@ BOARD
 .board {
     background:
         linear-gradient(180deg, rgba(255,255,255,0.0) 0%, var(--grey-200) 100%),
-        url('../images/lines.svg'),
+        url('../../images/lines.svg'),
         var(--grey-200);
 
     color: var(--grey-700);

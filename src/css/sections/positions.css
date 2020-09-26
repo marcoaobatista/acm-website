@@ -4,7 +4,7 @@ POSITIONS
 .positions {
     background:
         linear-gradient(0deg, rgba(0,0,0,0) 0%,
-        var(--grey-600) 100%), url('../images/lines.svg'),
+        var(--grey-600) 100%), url('../../images/lines.svg'),
         var(--grey-600);
         padding: 64px 0;
 }
