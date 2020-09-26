@@ -6,6 +6,8 @@ FONTS
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
+    font-display: swap;
+    unicode-range: U+000-5FF;
     src: url('../webfonts/montserrat/montserrat-v14-latin-regular.eot'); /* IE9 Compat Modes */
     src: local('Montserrat Regular'), local('Montserrat-Regular'),
         url('../webfonts/montserrat/montserrat-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -20,6 +22,8 @@ FONTS
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
+    font-display: swap;
+    unicode-range: U+000-5FF;
     src: url('../webfonts/montserrat/montserrat-v14-latin-700.eot'); /* IE9 Compat Modes */
     src: local('Montserrat Bold'), local('Montserrat-Bold'),
         url('../webfonts/montserrat/montserrat-v14-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -33,7 +37,9 @@ FONTS
 @font-face {
 	font-family: 'Lato';
 	font-style: normal;
-	font-weight: 400;
+    font-weight: 400;
+    font-display: swap;
+    unicode-range: U+000-5FF;
 	src: url('../webfonts/lato/lato-v16-latin-regular.eot'); /* IE9 Compat Modes */
 	src: local('Lato Regular'), local('Lato-Regular'),
         url('../webfonts/lato/lato-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -48,6 +54,8 @@ FONTS
     font-family: 'Lato';
     font-style: normal;
     font-weight: 700;
+    font-display: swap;
+    unicode-range: U+000-5FF;
     src: url('../webfonts/lato/lato-v16-latin-700.eot'); /* IE9 Compat Modes */
     src: local('Lato Bold'), local('Lato-Bold'),
         url('../webfonts/lato/lato-v16-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -62,6 +70,8 @@ FONTS
     font-family: 'Lato';
     font-style: normal;
     font-weight: 900;
+    font-display: swap;
+    unicode-range: U+000-5FF;
     src: url('../webfonts/lato/lato-v16-latin-900.eot'); /* IE9 Compat Modes */
     src: local('Lato Black'), local('Lato-Black'),
          url('../webfonts/lato/lato-v16-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
