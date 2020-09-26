@@ -9,7 +9,7 @@ const process = require('process');
 const WebSocket = require('ws');
 const chokidar = require('chokidar');
 const { build } = require('./build');
-
+const { logErrorAndExit, watchItems } = require('./util');
 
 const contentTypeHeaders = {
     '.js': 'application/javascript',
@@ -22,8 +22,9 @@ const contentTypeHeaders = {
     '.otf': 'application/x-font-opentype',
     '.woff': 'application/font-woff',
     '.woff2': 'application/font-woff2',
-    'eot': 'application/vnd.ms-fontobject',
-    'sfnt': 'application/font-sfnt'
+    '.eot': 'application/vnd.ms-fontobject',
+    '.sfnt': 'application/font-sfnt',
+	'.ico': 'image/vnd.microsoft.icon'
 }
 
 // Creates a local http server.
@@ -31,38 +32,42 @@ http.createServer(async (req, res) => {
     // This is everything in the URL after 'http://localhost:8000'.
     let urlPath = url.parse(req.url).pathname;
 
-    switch (urlPath) {        
+    switch (urlPath) {
         default:
-            try {                
-                if (urlPath == '/') urlPath = '/index.html';
+            try
+			{
+                if (urlPath === '/') urlPath = '/index.html';
 
-                const ext = path.extname(urlPath);
-                res.writeHead(200, { 'Content-Type': contentTypeHeaders[ext] });
-                
+                const itemExtension = path.extname(urlPath);
+
+				if (!contentTypeHeaders.hasOwnProperty(itemExtension))
+				{
+					logErrorAndExit(new Error(`The content type header is not known for requested item: ${urlPath}.`));
+				}
+
+                res.writeHead(200, { 'Content-Type': contentTypeHeaders[itemExtension] });
+
                 // Some files are blobs and aren't represented as characers.
-                const enc = (
-                    ext == '.jpg' ||
-                    ext == '.png' ||
-                    ext == '.ttf' ||
-                    ext == '.oft' ||
-                    ext == '.woff' ||
-                    ext == '.woff2' ||
-                    ext == '.eot' ||
-                    ext == '.sfnt'
+                const encoding = (
+                    itemExtension === '.jpg' ||
+                    itemExtension === '.png' ||
+                    itemExtension === '.ttf' ||
+                    itemExtension === '.oft' ||
+                    itemExtension === '.woff' ||
+                    itemExtension === '.woff2' ||
+                    itemExtension === '.eot' ||
+                    itemExtension === '.sfnt'
                 ) ? null : 'utf-8';
 
-                let extString = await fsp.readFile(`./build${urlPath}`, { encoding: enc })
-                    .catch(err => {
-                        console.log(new Error(err));
-                        process.exit(1);
-                    });
-                
-                if (ext == '.html')
+                let itemContents = await fsp.readFile(`./build${urlPath}`, { encoding: encoding })
+                    .catch(err => logErrorAndExit(new Error(err)));
+
+                if (itemExtension === '.html')
                 {
                     // Add hot-reload script to bottom of <body>.
-                    // It waits for a message from the websocket server then 
+                    // It waits for a message from the websocket server then
                     // refreshes the page.
-                    extString = extString.replace('</body>', `
+                    itemContents = itemContents.replace('</body>', `
                         <script type="application/javascript">
                             const ws = new WebSocket('ws://localhost:8001');
                             ws.onmessage = function(msg) {
@@ -71,46 +76,45 @@ http.createServer(async (req, res) => {
                         </script></body>
                         `);
                 }
-                
+
                 // Return the response.
-                res.end(extString);
-            } catch (error) {
+                res.end(itemContents);
+            }
+			catch (error)
+			{
                 res.writeHead(404, { 'Content-Type': 'text/plain' })
-                res.end('Route not found');
+                res.end(`Route not found: ${error}`);
             }
     }
-}).listen(8000, () => {
+}).listen(8000, () =>
+{
     console.log('Server now available at http://localhost:8000');
 });
 
 // Creates a WebSocket server that maintains an array of socket connections.
 const wss = new WebSocket.Server({ port: 8001 });
 let sockets = [];
-wss.on('connection', ws => {
+wss.on('connection', ws =>
+{
     sockets.push(ws);
 
-    // Removes the socket that was just closed.
-    ws.on('close', closeCode => {
+    ws.on('close', closeCode =>
+	{
+    	// Removes the socket that was just closed.
         sockets = sockets.filter(socket => socket._closeCode != closeCode);
     });
 });
 
-// Watch the `src` directory for changes.
-const watcher = chokidar.watch('src', { persistent: true })
-    .add('content'); // Watch the `content` directory for changes.
 
-watcher
-    .on('ready', () => console.log('Initial watcher scan complete, ready for changes.'))
-    .on('change', async () => {
-        await build()
-            .catch(err => {
-                console.error(new Error(err));
-                process.exit(1);
-            });
-        
-        // The client hot-reload script will receive this message and 
-        // refresh the browser.
-        for (const ws of sockets) {
-            ws.send('refresh');
-        }
-    });
+
+watchItems(['src', 'content'], async (filePath) => {
+    await build()
+            .catch(err => logErrorAndExit(err));
+
+    // The client hot-reload script will receive this message and
+    // refresh the browser.
+    for (const ws of sockets)
+    {
+        ws.send('refresh');
+    }
+});

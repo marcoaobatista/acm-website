@@ -11,13 +11,10 @@ async function build()
 {
     // Copy `src` to `build`.
     // `build` will be removed if it already exists.
-    await copyDir(
-            path.join(process.cwd(), 'src'), 
-            path.join(process.cwd(), 'build')
-        )
-        .catch(err => logErrorAndExit(new Error(err)));
+    await copyDir('src', 'build')
+        .catch(err => logErrorAndExit(err));
 
-    await fsp.mkdir(path.join(process.cwd(), 'build/events'))
+    await fsp.mkdir('build/events')
         .catch(err => logErrorAndExit(new Error(err)));
 
     // Read json text and convert to an object.
@@ -32,26 +29,28 @@ async function build()
     {
         // Create event HTML file.
         await createEventPage(event)
-            .catch(err => logErrorAndExit(new Error(err)));
-        
+            .catch(err => logErrorAndExit(err));
+
         const eventDate = new Date(event.date);
         const eventYear = eventDate.getFullYear();
 
         let eventMonth = eventDate.getMonth() + 1;
-        if (eventMonth.toString().length == 1)
+        if (eventMonth.toString().length === 1)
         {
             eventMonth = '0' + eventMonth.toString();
         }
 
         let eventDay = eventDate.getDate();
-        if (eventDay.toString().length == 1)
+        if (eventDay.toString().length === 1)
         {
             eventDay = '0' + eventDay.toString();
         }
 
         if (!eventsMap.hasOwnProperty(eventYear))
+		{
             eventsMap[eventYear] = {};
-        
+		}
+
         // Will be used to create event page links in `build/events.html`.
         eventsMap[eventYear][
             `${eventMonth}/${eventDay} - ${event.title}`
@@ -60,7 +59,7 @@ async function build()
 
     // Adds event page links in `build/events.html`.
     await populateEventsMapHtml(eventsMap)
-        .catch(err => logErrorAndExit(new Error(err)));
+        .catch(err => logErrorAndExit(err));
 }
 
 
@@ -69,7 +68,7 @@ async function build()
 // @param {string}  event.title     Title of event
 // @param {string}  event.date      ISO stamp of when event is
 // @param {string}  event.location  Actual location of the event
-// @param {string}  event.htmlPath  Where event HTML is stored that will 
+// @param {string}  event.htmlPath  Where event HTML is stored that will
 //                                  replace placeholder in `eventTemplate`
 async function createEventPage(event)
 {
@@ -83,15 +82,15 @@ async function createEventPage(event)
 
     // Set to the fresh event template with placeholders.
     let newEventPage = eventTemplate;
-    
-    // Grab HTML for the `newEventPage` @EVENT placeholder from 
+
+    // Grab HTML for the `newEventPage` @EVENT placeholder from
     // `event.htmlPath`.
     const newEventHtml = await fsp.readFile(
             event.htmlPath,
             { encoding: 'utf-8' }
         )
         .catch(err => logErrorAndExit(new Error(err)));
-    
+
     // used for @DATE placeholder
     const dateFormatted = formatDate(new Date(event.date));
 
@@ -101,7 +100,6 @@ async function createEventPage(event)
     newEventPage = newEventPage.replace(/<!-- @EVENT -->/g, newEventHtml);
 
     const newEventPagePath = path.join(
-        process.cwd(),
         'build/events/',
         path.basename(event.htmlPath)
     );
@@ -124,11 +122,12 @@ async function populateEventsMapHtml(eventsMap)
 
     // Order by year (number), descending.
     const eventsYearsOrderedDesc = Object.getOwnPropertyNames(eventsMap);
-    eventsYearsOrderedDesc.sort((a, b) => b-a);
-    
+    eventsYearsOrderedDesc.sort((a, b) => b - a);
+
     let eventsMapHtml = '';
     for (let year of eventsYearsOrderedDesc) {
-        eventsMapHtml += `<h2 class="events__year">${year}</h2>`;
+        // add heading for year.
+		eventsMapHtml += `<h2 class="events__year">${year}</h2>`;
 
         // Order by event title (string), descending.
         const eventsOrderedDesc = Object.getOwnPropertyNames(eventsMap[year]);
@@ -138,7 +137,7 @@ async function populateEventsMapHtml(eventsMap)
             return 0;
         });
 
-        // Create headings and unordered lists.
+        // Add list of events.
         eventsMapHtml += '<ul class="events__list">';
         for (let eventTitle of eventsOrderedDesc) {
             eventsMapHtml += `<li><a href="${eventsMap[year][eventTitle]}">${eventTitle}</a></li>`;
@@ -149,7 +148,7 @@ async function populateEventsMapHtml(eventsMap)
     // Replace placeholder.
     eventsPage = eventsPage.replace(/<!-- @EVENTS -->/g, eventsMapHtml);
 
-    fsp.writeFile(path.join(process.cwd(), 'build/events.html'), eventsPage)
+    fsp.writeFile('build/events.html', eventsPage)
         .catch(err => logErrorAndExit(new Error(err)));
 }
 
@@ -160,7 +159,7 @@ async function populateEventsMapHtml(eventsMap)
 function formatDate(d)
 {
     const months = [
-        'January', 'February', 'March', 'April', 'May', 'June', 'July', 
+        'January', 'February', 'March', 'April', 'May', 'June', 'July',
         'August', 'September', 'October', 'November', 'December'
     ];
 
@@ -180,14 +179,17 @@ function formatDate(d)
         dateSuffix = 'nd';
     }
 
-    const dateString = months[month] + ' ' + date + dateSuffix + ', ' + year +
-        ' at ' + hours + ':' + minutes + '' + meridiem.toLowerCase() + ' EST';
+	const dateString = `${months[month]} ${date}${dateSuffix}, ${year} ` +
+	`at ${hours}:${minutes}${meridiem.toLowerCase()} EST`;
 
     return dateString;
 }
 
-build()
-    .catch(err => logErrorAndExit(new Error(err)));
+// An anonymous, asychronous function that is immediately invoked.
+(async () => {
+	await build()
+    	.catch(err => logErrorAndExit(err));
+})();
 
 
 exports.build = build;
