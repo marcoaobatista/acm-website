@@ -58,7 +58,7 @@ http.createServer(async (req, res) => {
                 ) ? null : 'utf-8';
 
                 let itemContents = await fsp.readFile(`./build${urlPath}`, { encoding: encoding })
-                    .catch(err => logErrorAndExit(new Error(err)));
+                    .catch(err => console.error(new Error(err)));
 
                 if (itemExtension === '.html')
                 {
