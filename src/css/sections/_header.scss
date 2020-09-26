@@ -5,6 +5,7 @@ HEADER
     --header-gradient: linear-gradient(135deg, hsla(146, 73.2%, 46.9%, 60%), hsla(177, 98.9%, 35.5%, 60%));
     color: var(--accent-100);
     background: var(--header-gradient), url('../images/leaves.jpg');
+    background-color: var(--accent-600);
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
