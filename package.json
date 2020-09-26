@@ -2,6 +2,10 @@
   "name": "acm-site-new",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:acm-msu/acm-website.git"
+  },
   "main": "build.js",
   "scripts": {
     "build": "node build.js",
