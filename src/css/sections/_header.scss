@@ -1,0 +1,151 @@
+/* =============================================================================
+HEADER
+============================================================================= */
+.header {
+    --header-gradient: linear-gradient(135deg, hsla(146, 73.2%, 46.9%, 60%), hsla(177, 98.9%, 35.5%, 60%));
+    color: var(--accent-100);
+    background: var(--header-gradient), url('../images/leaves.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 96px;
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+    padding: 16px var(--page-gutter);
+
+    &__logo {
+        height: 100%;
+    }
+
+    &__links {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+    }
+
+    &__link a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 24px;
+        font-family: var(--monserrat);
+        font-weight: bold;
+        margin-left: 32px;
+
+        &:hover {
+            border-bottom: 2px solid var(--accent-100);
+            border-radius: 2px;
+        }
+    }
+}
+
+.hero {
+    max-width: var(--page-max-width);
+    padding: 0 var(--page-gutter);
+    margin: 24px auto 0 auto;
+
+    &__title {
+        color: #fff;
+        font-family: var(--monserrat);
+        font-weight: bold;
+        font-size: 36px;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+    }
+
+    &__desc {
+        color: #fff;
+        font-family: var(--monserrat);
+        font-weight: bold;
+        font-size: 20px;
+        max-width: 512px;
+        margin-bottom: 24px;
+    }
+
+    &__call-to-action {
+        background: var(--grey-700);
+        padding: 12px;
+        cursor: pointer;
+        border-radius: 12px;
+        border: none;
+        box-shadow: 0 10px 29px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+
+        & span {
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        
+            letter-spacing: 1px;
+            font-weight: bold;
+            font-family: var(--monserrat);
+            color: var(--grey-100);
+
+            & img {
+                margin-right: 10px;
+                height: 24px;
+            }
+        }
+    }
+}
+
+.header__wave {
+    color: var(--grey-100);
+    position: relative;
+    top: 10px;
+    margin-top: 64px;
+    transform: matrix(-1,0,0,1,0,0);
+}
+
+@media screen and (max-width: 580px) {
+    .hero {
+        &__title {
+            font-size: 30px;
+        }
+
+        &__desc {
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .nav {
+        &__logo {
+            height: 48px;
+        }
+
+        &__link a {
+            font-size: 20px;
+        }
+    }
+    
+    .hero {
+        &__title {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        &__desc {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        &__cta-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        &__call-to-action {
+            margin: 0 auto;
+        }
+    }
+
+    .header__wave {
+        margin-top: 36px;
+    }
+}

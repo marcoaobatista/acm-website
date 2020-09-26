@@ -91,56 +91,6 @@ async function copyDirRec(contents, source, target)
 }
 
 
-// Watches directories/files and runs `watchAction` on any changes to them.
-// Directories are watched recursively by default.
-// @param {array[string]}   items
-// @param {function}        watchAction
-async function watchItems(items, watchAction)
-{
-	for (const item of items)
-	{
-        // Get `item` metadata.
-        const itemStats = await fsp.stat(item)
-			.catch(err => logErrorAndExit(new Error(err)));
-
-		if (itemStats.isDirectory())
-		{
-            // Read contents in `item`.
-            const itemContents = await fsp.readdir(item)
-				.then(contents => contents.map(content => path.join(item, content)))
-				.catch(err => logErrorAndExit(new Error(err)));
-
-			await watchItems(itemContents, watchAction);
-		}
-		else
-		{
-            // Why are all are these `modified` statements necessary?
-            // The main reason is because implemenations of `fs.watch` are 
-            // different on all platforms, and sometimes when a watched file is 
-            // modified, more than one "change" event will be emitted. To 
-            // prevent `watchAction` from being called more than once in a 
-            // short period of time, there is a grace period of 1 second. This 
-            // pretty much means that if you modify a file twice within a 
-            // single second, `watchAction` will only be called once.
-            
-            let modified = false;
-			
-			fs.watch(item, async () => {
-				if (modified) return;
-				modified = true;
-				
-				setTimeout(() => {
-					modified = false;
-				}, 1000);
-		
-				await watchAction(item);
-			})
-				.on('error', err => logErrorAndExit(err));
-		}
-	}
-}
-
-
 // @param {Error} err   An Error object that was initialized where the code
 // failed.
 function logErrorAndExit(err) {
@@ -151,4 +101,3 @@ function logErrorAndExit(err) {
 
 exports.copyDir = copyDir;
 exports.logErrorAndExit = logErrorAndExit;
-exports.watchItems = watchItems;

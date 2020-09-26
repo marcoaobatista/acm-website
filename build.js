@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const fsp = fs.promises;
 const { copyDir, logErrorAndExit } = require('./util');
+const exec = require('util').promisify(require('child_process').exec);
 
 
 async function build()
@@ -12,6 +13,9 @@ async function build()
     // `build` will be removed if it already exists.
     await copyDir('src', 'build')
         .catch(err => logErrorAndExit(err));
+
+    await exec('sass build/css/styles.scss build/css/styles.css --style compressed')
+        .catch(err => console.error(new Error(err)));
 
     await fsp.mkdir('build/events')
         .catch(err => logErrorAndExit(new Error(err)));

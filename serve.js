@@ -7,7 +7,8 @@ const path = require('path');
 const http = require('http');
 const WebSocket = require('ws');
 const { build } = require('./build');
-const { logErrorAndExit, watchItems } = require('./util');
+const { logErrorAndExit } = require('./util');
+const chokidar = require('chokidar');
 
 const contentTypeHeaders = {
     '.js': 'application/javascript',
@@ -22,7 +23,9 @@ const contentTypeHeaders = {
     '.woff2': 'application/font-woff2',
     '.eot': 'application/vnd.ms-fontobject',
     '.sfnt': 'application/font-sfnt',
-	'.ico': 'image/vnd.microsoft.icon'
+    '.ico': 'image/vnd.microsoft.icon',
+    '.map': 'application/json',
+    '.scss': 'text/plain'
 }
 
 // Creates a local http server.
@@ -40,7 +43,7 @@ http.createServer(async (req, res) => {
 
 				if (!contentTypeHeaders.hasOwnProperty(itemExtension))
 				{
-					logErrorAndExit(new Error(`The content type header is not known for requested item: ${urlPath}.`));
+					logErrorAndExit(new Error(`The content type header is not known for requested item: ${urlPath} with the extension of ${itemExtension}`));
 				}
 
                 res.writeHead(200, { 'Content-Type': contentTypeHeaders[itemExtension] });
@@ -105,14 +108,21 @@ wss.on('connection', ws =>
 
 
 
-watchItems(['src', 'content'], async (filePath) => {
-    await build()
+// Watch the `src` directory for changes.
+const watcher = chokidar.watch('src', { persistent: true })
+    .add('content'); // Watch the `content` directory for changes.
+
+watcher
+    .on('ready', () => console.log('Initial watcher scan complete, ready for changes.'))
+    .on('change', async () =>
+    {
+        await build()
             .catch(err => logErrorAndExit(err));
 
-    // The client hot-reload script will receive this message and
-    // refresh the browser.
-    for (const ws of sockets)
-    {
-        ws.send('refresh');
-    }
-});
+        // The client hot-reload script will receive this message and 
+        // refresh the browser.
+        for (const ws of sockets)
+        {
+            ws.send('refresh');
+        }
+    }); 
