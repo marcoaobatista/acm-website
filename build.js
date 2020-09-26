@@ -3,7 +3,6 @@
 const fs = require('fs');
 const path = require('path');
 const fsp = fs.promises;
-const process = require('process');
 const { copyDir, logErrorAndExit } = require('./util');
 
 

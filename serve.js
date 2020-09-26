@@ -5,9 +5,7 @@ const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
 const http = require('http');
-const process = require('process');
 const WebSocket = require('ws');
-const chokidar = require('chokidar');
 const { build } = require('./build');
 const { logErrorAndExit, watchItems } = require('./util');
 
