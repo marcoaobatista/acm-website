@@ -53,6 +53,11 @@ BOARD
         grid-template-columns: 1fr 1fr 1fr;
         gap: 64px;
     }
+
+    &__sigHead {
+        @extend .board__head;
+        margin-top: 64px;
+    }
 }
 
 .member {
@@ -78,6 +83,20 @@ BOARD
         color: var(--grey-800);
         font-size: 24px;
         font-weight: bold;
+    }
+
+    &__titleWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        display: block;
+        margin-right: 4px;
     }
 
     &__title {
