@@ -83,6 +83,12 @@
             "date": "2020-10-07T18:00:00-04:00",
             "location": "Online",
             "htmlPath": "content/events/2020/2020-10-07-quicken.html"
+        },
+        {
+            "title": "Game Night/SIG Informational Meeting",
+            "date": "2020-10-14T18:00:00-04:00",
+            "location": "Online",
+            "htmlPath": "content/events/2020/2020-10-20-sig.html"
         }
     ]
 }
