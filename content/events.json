@@ -89,6 +89,12 @@
             "date": "2020-10-14T18:00:00-04:00",
             "location": "Online",
             "htmlPath": "content/events/2020/2020-10-20-sig.html"
+        },
+	{
+            "title": "Tech Smith: Building Software Capital Tech Talk",
+            "date": "2020-10-28T18:00:00-6:00",
+            "location": "Online",
+            "htmlPath": "content/events/2020/2020-10-28-techsmith.html"
         }
     ]
 }
