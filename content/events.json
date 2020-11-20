@@ -77,6 +77,24 @@
             "date": "2020-09-16T18:00:00-04:00",
             "location": "Online",
             "htmlPath": "content/events/2020/2020-09-16-microsoft.html"
+        },
+        {
+            "title": "Embracing your Renaissance Self in the Digital Age",
+            "date": "2020-10-07T18:00:00-04:00",
+            "location": "Online",
+            "htmlPath": "content/events/2020/2020-10-07-quicken.html"
+        },
+        {
+            "title": "Game Night/SIG Informational Meeting",
+            "date": "2020-10-14T18:00:00-04:00",
+            "location": "Online",
+            "htmlPath": "content/events/2020/2020-10-20-sig.html"
+        },
+	    {
+            "title": "Tech Smith: Building Software Capital Tech Talk",
+            "date": "2020-10-28T18:00:00-04:00",
+            "location": "Online",
+            "htmlPath": "content/events/2020/2020-10-28-techsmith.html"
         }
     ]
 }

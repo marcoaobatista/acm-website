@@ -11,6 +11,11 @@ EVENT
         padding: 0 var(--page-gutter);
         font-size: 18px;
         color: var(--grey-600);
+        line-height: 32px;
+
+        & h2 {
+            margin: 12px 0;
+        }
 
         & img {
             max-width: 450px;

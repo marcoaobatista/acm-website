@@ -166,14 +166,19 @@ function formatDate(d)
         'August', 'September', 'October', 'November', 'December'
     ];
 
-    d = d.toLocaleString('en-US', {timeZone: 'America/New_York' });
-
-    const date = d.split('/')[1];
-    const month = d.split('/')[0] - 1;
-    const year = d.split('/')[2].split(',')[0];
-    const hours = d.split(' ')[1].split(':')[0];
-    const minutes = d.split(' ')[1].split(':')[1];
-    const meridiem = d.split(' ')[2];
+    let date, month, year, hours, minutes, meridiem;
+    try {
+        d = d.toLocaleString('en-US', {timeZone: 'America/New_York' });
+        date = d.split('/')[1];
+        month = d.split('/')[0] - 1;
+        year = d.split('/')[2].split(',')[0];
+        hours = d.split(' ')[1].split(':')[0];
+        minutes = d.split(' ')[1].split(':')[1];
+        meridiem = d.split(' ')[2];
+    } catch (err) {
+        logErrorAndExit(new Error('Unable to parse ISO date string in `content/events.json`. It is likely formatted incorrectly or missing.'));
+    }
+    
 
     let dateSuffix = 'th';
     if (((date % 10) === 1) && (date !== 11)) {
