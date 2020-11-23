@@ -14,6 +14,7 @@ async function build()
     await copyDir('src', 'build')
         .catch(err => logErrorAndExit(err));
 
+    // Builds `build/css/styles.css` from SASS files.
     await exec('sass build/css/styles.scss build/css/styles.css --style compressed')
         .catch(err => console.error(new Error(err)));
 

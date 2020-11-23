@@ -13,7 +13,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "showdown": "^1.9.1"
+  },
   "devDependencies": {
     "chokidar": "^3.4.2",
     "sass": "^1.26.11",
