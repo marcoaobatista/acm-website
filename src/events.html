@@ -7,73 +7,67 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
-    <header class="header" style="padding-bottom: 64px;">
-        <nav class="nav">
-            <img class="nav__logo" src="images/acm-logo-new.svg" alt="ACM logo">
-            <ul class="nav__links">
-                <li class="nav__link">
-                    <a href="index.html">Home</a>
-                </li>
-            </ul>
-        </nav>
+    <header class="header" style="padding-bottom: 16px;">
+        <a class="skip-to-content" href="#main">Skip to main content</a>
 
-        <div class="hero">
-            <h1 class="hero__title">Events</h1>
-            
-            <!-- <a href="https://discord.gg/fWKV2TF" target="_blank">
-                <button class="hero__call-to-action">
-                    <span><i class="fab fa-discord"></i>Join us on Discord</span>
-                </button>
-            </a> -->
+        <div class="content-wrapper">
+            <nav class="nav">
+                <a class="nav__logo" href="/">
+                    <img src="images/acm-logo-new.svg" alt="ACM at MSU logo">
+                </a>
+                
+                <ul class="nav__links">
+                    <li class="nav__link">
+                        <a href="/">Home</a>
+                    </li>
+                </ul>
+            </nav>
+    
+            <div class="hero">
+                <p class="hero__title">Events</p>
+                <!-- <p class="hero__desc">Building a community of students, developers, hobbyists, and professionals</p>
+                <a class="hero__call-to-action" href="https://discord.gg/fWKV2TF">
+                    <img src="images/icons/discord-brands.svg">
+                    <p>Join us on Discord</p>
+                </a> -->
+            </div>
         </div>
     </header>
 
     <div class="subscribe subscribe--light">
         <div class="subscribe__wrapper">
             <p class="subscribe__paragraph">Want to stay up to date with what's going on?</p>
-            <form action="https://eepurl.com/bMwQFz" target="_blank">
-                <button type="submit" class="subscribe__button">Join our Mailing List</button>
-            </form>
+            <a class="subscribe__button" href="https://eepurl.com/bMwQFz">Join our Mailing List</a>
         </div>
     </div>
 
-    <div class="events">
+    <main class="events" id="main">
         <div class="events__wrapper">
             <!-- @EVENTS -->
         </div>
-    </div>
+    </main>
 
     <footer class="footer">
         <div class="footer__social">
-            <form action="https://discord.gg/fWKV2TF" target="_blank">
-                <button class="social__link" type="submit">
-                    <img src="images/icons/discord-brands.svg">
-                </button>
-            </form>
+            <a class="social__link" href="https://discord.gg/fWKV2TF" aria-label="Discord server invite">
+                <img src="images/icons/discord-brands.svg">
+            </a>
 
-            <form action="https://twitter.com/ACM_MSU" target="_blank">
-                <button class="social__link" type="submit">
-                    <img src="images/icons/twitter-brands.svg">
-                </button>
-            </form>
+            <a class="social__link" href="https://twitter.com/ACM_MSU" aria-label="Twitter">
+                <img src="images/icons/twitter-brands.svg">
+            </a>
 
-            <form action="https://www.facebook.com/acmmsu/" target="_blank">
-                <button class="social__link" type="submit">
-                    <img src="images/icons/facebook-square-brands.svg">
-                </button>
-            </form>
+            <a class="social__link" href="https://www.facebook.com/acmmsu/" aria-label="Facebook">
+                <img src="images/icons/facebook-square-brands.svg">
+            </a>
 
-            <form action="https://youtube.com/channel/UCNUvR1dpPap1ZvPOLCJ9dSQ" target="_blank">
-                <button class="social__link" type="submit">
-                    <img src="images/icons/youtube-brands.svg">
-                </button>
-            </form>
+            <a class="social__link" href="https://youtube.com/channel/UCNUvR1dpPap1ZvPOLCJ9dSQ" aria-label="YouTube">
+                <img src="images/icons/youtube-brands.svg">
+            </a>
 
-            <form action="mailto:acm@cse.msu.edu">
-                <button class="social__link" type="submit">
-                    <img src="images/icons/envelope-solid.svg">
-                </button>
-            </form>
+            <a class="social__link" href="mailto:acm@cse.msu.edu" aria-label="Email us">
+                <img src="images/icons/envelope-solid.svg">
+            </a>
         </div>
     </footer>
 </body>

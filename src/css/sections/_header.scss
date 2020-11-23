@@ -2,26 +2,51 @@
 HEADER
 ============================================================================= */
 .header {
+    position: relative;
     --header-gradient: linear-gradient(135deg, hsla(146, 73.2%, 46.9%, 60%), hsla(177, 98.9%, 35.5%, 60%));
-    color: var(--accent-100);
     background: var(--header-gradient), url('../images/leaves.jpg');
     background-color: var(--accent-600);
     background-size: cover;
     background-repeat: no-repeat;
-    position: relative;
+    color: var(--accent-100);
+}
+
+.skip-to-content {
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    z-index: 100;
+    background: var(--accent-100);
+    padding: 9px 11px;
+    border-radius: 7px;
+    margin-top: 12px;
+    margin-left: 12px;
+    transition: top .1s ease-out;
+    color: var(--accent-600);
+    font-weight: bold;
+    font-size: 1rem;
+
+    &:focus {
+        transition: top .1s ease-in;
+        top: 0;
+    }
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 96px;
-    max-width: var(--page-max-width);
-    margin: 0 auto;
-    padding: 16px var(--page-gutter);
+    height: 4em;
 
     &__logo {
+        display: block;
         height: 100%;
+        
+        & img {
+            display: block;
+            height: 100%;
+        }
     }
 
     &__links {
@@ -33,7 +58,7 @@ HEADER
     &__link a {
         color: #fff;
         text-decoration: none;
-        font-size: 24px;
+        font-size: 1.5em;
         font-family: var(--monserrat);
         font-weight: bold;
         margin-left: 32px;
@@ -46,107 +71,76 @@ HEADER
 }
 
 .hero {
-    max-width: var(--page-max-width);
-    padding: 0 var(--page-gutter);
-    margin: 24px auto 0 auto;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
 
     &__title {
         color: #fff;
         font-family: var(--monserrat);
         font-weight: bold;
-        font-size: 36px;
+        font-size: 2.25em;
         letter-spacing: 1px;
         margin-bottom: 12px;
+        max-width: 550px;
     }
 
     &__desc {
         color: #fff;
         font-family: var(--monserrat);
         font-weight: bold;
-        font-size: 20px;
+        font-size: 1.25em;
         max-width: 512px;
         margin-bottom: 24px;
     }
 
     &__call-to-action {
+        display: flex;
+        align-items: center;
+        width: max-content;
         background: var(--grey-700);
-        padding: 12px;
-        cursor: pointer;
+        padding: 0.75em;
         border-radius: 12px;
-        border: none;
         box-shadow: 0 10px 29px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
 
-        & span {
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-        
+        & img {
+            margin-right: 10px;
+            height: 1.5em;
+        }
+
+        & p {
+            color: var(--grey-100);
+            // font-size: 18px;
+            font-size: 1.125em;
             letter-spacing: 1px;
             font-weight: bold;
             font-family: var(--monserrat);
-            color: var(--grey-100);
-
-            & img {
-                margin-right: 10px;
-                height: 24px;
-            }
         }
+
     }
 }
 
 .header__wave {
-    color: var(--grey-100);
     position: relative;
     top: 10px;
-    margin-top: 64px;
+    margin-top: 16px;
     transform: matrix(-1,0,0,1,0,0);
 }
 
 @media screen and (max-width: 580px) {
-    .hero {
-        &__title {
-            font-size: 30px;
-        }
-
-        &__desc {
-            font-size: 18px;
-        }
+    .header {
+        font-size: 80%;
     }
 }
 
 @media screen and (max-width: 450px) {
-    .nav {
-        &__logo {
-            height: 48px;
-        }
-
-        &__link a {
-            font-size: 20px;
-        }
-    }
-    
     .hero {
-        &__title {
-            font-size: 24px;
-            text-align: center;
-        }
-
-        &__desc {
-            font-size: 16px;
-            text-align: center;
-        }
-
-        &__cta-wrapper {
-            display: flex;
-            justify-content: center;
-        }
-
-        &__call-to-action {
-            margin: 0 auto;
-        }
+        align-items: center;
+        text-align: center;
     }
 
-    .header__wave {
-        margin-top: 36px;
+    .header {
+        font-size: 70%;
     }
 }

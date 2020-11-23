@@ -2,12 +2,13 @@
 POSITIONS
 ============================================================================= */
 .positions {
+    padding: 64px var(--page-gutter);
     background:
         linear-gradient(0deg, rgba(0,0,0,0) 0%,
         var(--grey-600) 100%), url('../images/lines.svg'),
         var(--grey-600);
-        padding: 64px 0;
-    
+
+
     &__head {
         font-family: var(--monserrat);
         text-align: center;
@@ -41,6 +42,7 @@ POSITIONS
     &__wrapper {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
 
     &__top {
@@ -80,6 +82,7 @@ POSITIONS
         font-weight: bold;
         font-family: var(--monserrat);
         margin-top: 8px;
+        text-decoration: none;
     }
 }
 
@@ -106,7 +109,9 @@ POSITIONS
         border-bottom: 1px solid var(--grey-600);
     }
 
-
+    .position__button {
+        margin-top: 0px;
+    }
 
     .position:first-of-type {
         border-top-left-radius: 12px;
